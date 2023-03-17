@@ -8,7 +8,7 @@ module uart_rx #(
 (
   input wire       iClk, iRst,
   input wire       iRxSerial,
-  input wire [7:0] oRxByte, 
+  output wire [7:0] oRxByte, 
   output wire      oRxDone
 );
 

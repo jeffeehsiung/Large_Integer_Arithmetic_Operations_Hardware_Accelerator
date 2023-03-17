@@ -4,7 +4,7 @@ May 27 2020
 19:59:15
 /media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim/glbl.v,1590620768,verilog,,,,glbl,,,,,,,,
 /media/jeffee/T7/vivado/UART/UART.srcs/sim_1/new/uart_rx_TB.v,1678476927,verilog,,,,uart_rx_TB,,,,,,,,
-/media/jeffee/T7/vivado/UART/UART.srcs/sim_1/new/uart_top_TB.v,1678088446,verilog,,,,uart_top_TB,,,,,,,,
-/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_rx.v,1679066507,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_tx.v,,uart_rx,,,,,,,,
-/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_top.v,1678088396,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_tx.v,,uart_top,,,,,,,,
-/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_tx.v,1678092604,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sim_1/new/uart_rx_TB.v,,uart_tx,,,,,,,,
+/media/jeffee/T7/vivado/UART/UART.srcs/sim_1/new/uart_top_TB.v,1679082862,verilog,,,,uart_top_TB,,,,,,,,
+/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_rx.v,1679085771,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_top.v,,uart_rx,,,,,,,,
+/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_top.v,1679087038,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_tx.v,,uart_top,,,,,,,,
+/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_tx.v,1679085800,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sim_1/new/uart_top_TB.v,,uart_tx,,,,,,,,
