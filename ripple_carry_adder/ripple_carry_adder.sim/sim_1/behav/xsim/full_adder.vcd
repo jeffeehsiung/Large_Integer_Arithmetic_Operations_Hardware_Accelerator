@@ -1,0 +1,84 @@
+$date
+   Fri Feb 24 08:13:43 2023
+$end
+$version
+  2020.1
+$end
+$timescale
+  1ps
+$end
+$scope module full_adder_TB $end
+$var reg 1 ! riA $end
+$var reg 1 " riB $end
+$var reg 1 # rCin $end
+$var wire 1 $ wSum $end
+$var wire 1 % wCout $end
+$scope module fa $end
+$var wire 1 & iA $end
+$var wire 1 ' iB $end
+$var wire 1 ( iCin $end
+$var wire 1 $ oSum $end
+$var wire 1 % oCout $end
+$var reg 1 ) rSum $end
+$var reg 1 * rCout $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+0#
+0$
+0%
+0&
+0'
+0(
+0)
+0*
+$end
+#10000
+1#
+1$
+1(
+1)
+#20000
+1"
+0#
+1'
+0(
+#30000
+1#
+1(
+#40000
+1!
+0"
+0#
+1&
+0'
+0(
+#50000
+1#
+1(
+#60000
+1"
+0#
+1'
+0(
+#70000
+1#
+1(
+#80000
+0!
+0"
+0#
+0$
+0&
+0'
+0(
+0)
+#90000
+1#
+1$
+1(
+1)

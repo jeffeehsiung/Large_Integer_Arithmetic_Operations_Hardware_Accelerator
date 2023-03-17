@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Mon Mar  6 01:21:45 2023
+# Process ID: 8526
+# Current directory: /media/jeffee/T7/vivado/UART/UART.runs/synth_1
+# Command line: vivado -log uart_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_wrapper.tcl
+# Log file: /media/jeffee/T7/vivado/UART/UART.runs/synth_1/uart_wrapper.vds
+# Journal file: /media/jeffee/T7/vivado/UART/UART.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source uart_wrapper.tcl -notrace
