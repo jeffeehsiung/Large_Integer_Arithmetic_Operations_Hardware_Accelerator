@@ -1,9 +1,16 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../UART.ip_user_files/bd/uart/ip/uart_Debounce_Switch_0_0/sim/uart_Debounce_Switch_0_0.v" \
+"../../../../UART.ip_user_files/bd/uart/ip/uart_uart_top_0_0/sim/uart_uart_top_0_0.v" \
+"../../../../UART.ip_user_files/bd/uart/sim/uart.v" \
 "../../../../UART.srcs/sources_1/new/uart_rx.v" \
-"../../../../UART.srcs/sources_1/new/uart_top.v" \
 "../../../../UART.srcs/sources_1/new/uart_tx.v" \
+"../../../../UART.srcs/sources_1/new/uart_top.v" \
+"../../../../UART.srcs/sources_1/new/Debounce_Switch.v" \
+"../../../../UART.srcs/sources_1/bd/uart/hdl/uart_wrapper.v" \
 "../../../../UART.srcs/sim_1/new/uart_top_TB.v" \
+"../../../../UART.srcs/sim_1/new/uart_rx_TB.v" \
+"../../../../UART.srcs/sim_1/new/uart_tx_TB.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

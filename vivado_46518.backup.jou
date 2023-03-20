@@ -1,0 +1,37 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Fri Mar 17 14:54:59 2023
+# Process ID: 46518
+# Current directory: /media/jeffee/T7/vivado
+# Command line: vivado
+# Log file: /media/jeffee/T7/vivado/vivado.log
+# Journal file: /media/jeffee/T7/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /media/jeffee/T7/vivado/UART/UART.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+update_module_reference uart_uart_top_0_0
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {/media/jeffee/T7/vivado/UART/UART.runs/impl_1/uart_top.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {/media/jeffee/T7/vivado/UART/UART.runs/impl_1/uart_top.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+launch_simulation
+launch_simulation
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]

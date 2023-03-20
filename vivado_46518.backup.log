@@ -1,0 +1,106 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Fri Mar 17 14:54:59 2023
+# Process ID: 46518
+# Current directory: /media/jeffee/T7/vivado
+# Command line: vivado
+# Log file: /media/jeffee/T7/vivado/vivado.log
+# Journal file: /media/jeffee/T7/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /media/jeffee/T7/vivado/UART/UART.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+open_project: Time (s): cpu = 00:00:26 ; elapsed = 00:00:12 . Memory (MB): peak = 7108.301 ; gain = 42.281 ; free physical = 880 ; free virtual = 2225
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+update_module_reference uart_uart_top_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Adding component instance block -- xilinx.com:module_ref:Debounce_Switch:1.0 - Debounce_Switch_0
+Adding component instance block -- xilinx.com:module_ref:uart_top:1.0 - uart_top_0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /iClk(clk) and /uart_top_0/iClk(undef)
+Successfully read diagram <uart> from BD file </media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/uart.bd>
+Upgrading '/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/uart.bd'
+INFO: [IP_Flow 19-1972] Upgraded uart_uart_top_0_0 from uart_top_v1_0 1.0 to uart_top_v1_0 1.0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /iClk(clk) and /uart_top_0_upgraded_ipi/iClk(undef)
+Wrote  : </media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/uart.bd> 
+upgrade_ip: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 7221.188 ; gain = 29.707 ; free physical = 667 ; free virtual = 2112
+update_module_reference: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 7221.188 ; gain = 29.707 ; free physical = 667 ; free virtual = 2112
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Fri Mar 17 14:57:27 2023] Launched synth_1...
+Run output will be captured here: /media/jeffee/T7/vivado/UART/UART.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Fri Mar 17 15:01:18 2023] Launched impl_1...
+Run output will be captured here: /media/jeffee/T7/vivado/UART/UART.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Mar 17 15:02:20 2023] Launched impl_1...
+Run output will be captured here: /media/jeffee/T7/vivado/UART/UART.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3414] Connected to existing cs_server.
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+open_hw_target: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 8039.148 ; gain = 781.035 ; free physical = 109 ; free virtual = 914
+set_property PROGRAM.FILE {/media/jeffee/T7/vivado/UART/UART.runs/impl_1/uart_top.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {/media/jeffee/T7/vivado/UART/UART.runs/impl_1/uart_top.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/tools/Xilinx/Vivado/2020.1/data/xsim/xsim.ini' copied to run dir:'/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'uart_top_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+WARNING: [SIM-utils-18] Failed to change file permissions to executable (/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim/compile.sh): couldn't fork child process: not enough memory
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim'
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+ERROR: [USF-XSim-62] 'compile' step failed with error(s) while executing '/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim/compile.sh' script. Please check that the file has the correct 'read/write/execute' permissions and the Tcl console output for any other possible errors or warnings.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/tools/Xilinx/Vivado/2020.1/data/xsim/xsim.ini' copied to run dir:'/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'uart_top_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+WARNING: [SIM-utils-18] Failed to change file permissions to executable (/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim/compile.sh): couldn't fork child process: not enough memory
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim'
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+ERROR: [USF-XSim-62] 'compile' step failed with error(s) while executing '/media/jeffee/T7/vivado/UART/UART.sim/sim_1/behav/xsim/compile.sh' script. Please check that the file has the correct 'read/write/execute' permissions and the Tcl console output for any other possible errors or warnings.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 17 15:06:57 2023...
