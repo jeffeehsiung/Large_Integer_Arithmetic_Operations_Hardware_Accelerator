@@ -1,0 +1,113 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Fri Mar 17 14:38:58 2023
+# Process ID: 44035
+# Current directory: /media/jeffee/T7/vivado
+# Command line: vivado
+# Log file: /media/jeffee/T7/vivado/vivado.log
+# Journal file: /media/jeffee/T7/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /media/jeffee/T7/vivado/UART/UART.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+CRITICAL WARNING: [filemgmt 56-176] Module references are not supported in manual compile order mode and will be ignored.
+CRITICAL WARNING: [filemgmt 56-176] Module references are not supported in manual compile order mode and will be ignored.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 7109.773 ; gain = 44.254 ; free physical = 864 ; free virtual = 2311
+CRITICAL WARNING: [filemgmt 56-176] Module references are not supported in manual compile order mode and will be ignored.
+CRITICAL WARNING: [filemgmt 56-176] Module references are not supported in manual compile order mode and will be ignored.
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Mar 17 14:40:18 2023] Launched impl_1...
+Run output will be captured here: /media/jeffee/T7/vivado/UART/UART.runs/impl_1/runme.log
+set_property top uart_top [current_fileset]
+CRITICAL WARNING: [filemgmt 56-176] Module references are not supported in manual compile order mode and will be ignored.
+CRITICAL WARNING: [filemgmt 56-176] Module references are not supported in manual compile order mode and will be ignored.
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.1
+  **** Build date : May 27 2020 at 20:33:44
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2020.1.0
+  **** Build date : May 13 2020-18:10:29
+    ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+open_hw_target: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 7916.906 ; gain = 698.035 ; free physical = 113 ; free virtual = 1039
+set_property PROGRAM.FILE {/media/jeffee/T7/vivado/UART/UART.runs/impl_1/uart_top.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+ERROR: [filemgmt 56-189] Failed to resolve reference. Nothing was found in the project to match the name 'Debounce_Switch'.
+ERROR: [Runs 36-346] File '/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0.xci' needed for run contains invalid reference(s).
+launch_runs synth_1 -jobs 2
+ERROR: [filemgmt 56-189] Failed to resolve reference. Nothing was found in the project to match the name 'Debounce_Switch'.
+ERROR: [Runs 36-346] File '/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0.xci' needed for run contains invalid reference(s).
+launch_runs synth_1 -jobs 2
+ERROR: [filemgmt 56-189] Failed to resolve reference. Nothing was found in the project to match the name 'Debounce_Switch'.
+ERROR: [Runs 36-346] File '/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0.xci' needed for run contains invalid reference(s).
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+CRITICAL WARNING: [filemgmt 56-176] Module references are not supported in manual compile order mode and will be ignored.
+CRITICAL WARNING: [filemgmt 56-176] Module references are not supported in manual compile order mode and will be ignored.
+set_property source_mgmt_mode All [current_project]
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+close_project
+open_project /media/jeffee/T7/vivado/UART/UART.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+update_compile_order -fileset sources_1
+close_project
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 17 14:44:51 2023...

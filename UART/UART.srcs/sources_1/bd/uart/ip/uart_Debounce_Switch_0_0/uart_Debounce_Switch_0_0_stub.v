@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Mon Mar  6 01:14:45 2023
-// Host        : ubuntu running 64-bit Ubuntu 18.04.6 LTS
+// Date        : Mon Mar 20 05:08:49 2023
+// Host        : ubuntu running 64-bit unknown
 // Command     : write_verilog -force -mode synth_stub
 //               /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0_stub.v
 // Design      : uart_Debounce_Switch_0_0

@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Mon Mar  6 01:13:56 2023
-# Process ID: 7363
+# Start of session at: Mon Mar 20 05:08:04 2023
+# Process ID: 113612
 # Current directory: /media/jeffee/T7/vivado/UART/UART.runs/uart_Debounce_Switch_0_0_synth_1
 # Command line: vivado -log uart_Debounce_Switch_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_Debounce_Switch_0_0.tcl
 # Log file: /media/jeffee/T7/vivado/UART/UART.runs/uart_Debounce_Switch_0_0_synth_1/uart_Debounce_Switch_0_0.vds

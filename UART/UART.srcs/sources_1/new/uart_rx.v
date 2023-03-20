@@ -36,8 +36,8 @@ module uart_rx #(
   reg [$clog2(CLKS_PER_BIT):0]   rCnt_Current, wCnt_Next;
     
   // -> counter to keep track of sent bits
-  // (between 0 and 7)
-  reg [2:0] rBit_Current, wBit_Next;
+  // (between 0 and 8)
+  reg [3:0] rBit_Current, wBit_Next;
   
   // -> the byte we want to send (we store an internal copy)
   reg [7:0] rRxData_Current, wRxData_Next;
@@ -45,7 +45,6 @@ module uart_rx #(
   // Double-register the input wire to prevent metastability issues
   reg rRx1, rRx2;
   
-  reg half_cycle;
   
   // Describe all previous registers
   //------------------------------------------ 
@@ -61,7 +60,6 @@ module uart_rx #(
         rRxData_Current <= 0;
         rRx1 <= 0;
         rRx2 <= 0;
-        half_cycle <= 0;
       end
     else
       begin
@@ -94,10 +92,10 @@ module uart_rx #(
             wCnt_Next = 0;
             wBit_Next = 0;
           
-            if ((rRx1 == 1) && (iRxSerial == 0)) // rRx1?
+        if (iRxSerial == 0)
             begin
                 wFSM_Next = sRX_START;
-                wRxData_Next = rRx1;   // copy the byte to send into rTxData_Current, rRx1 or iRxSerial?
+                wRxData_Next = rRx2;  
             end
             else 
             begin    
@@ -110,14 +108,14 @@ module uart_rx #(
         sRX_START:
         begin
             wRxData_Next = rRxData_Current;
-            wBit_Next = 0; // will send the bit 0
+            wBit_Next = 1; // next state will start with bit 1
             
-            if(rCnt_Current < (CLKS_PER_BIT*3 - 1)/2)
+            if(rCnt_Current < (CLKS_PER_BIT - 1)/2)
             begin
                 wFSM_Next = sRX_START;          // stay in the same state
                 wCnt_Next = rCnt_Current + 1;   // clock cycle + 1
             end
-            else // rCnt_Current == (CLKS_PER_BIT - 1)
+            else 
             begin
                 wFSM_Next = sRX_DATA;
                 wCnt_Next = 0;
@@ -131,24 +129,22 @@ module uart_rx #(
                 begin
                     wFSM_Next = sRX_DATA;
                     wCnt_Next = rCnt_Current + 1; // each cycle increase the clock cycle by 1
-                    wRxData_Next = rRxData_Current;
                     wBit_Next = rBit_Current;
+                    wRxData_Next = rRxData_Current;
                 end
             else
                 begin
-                    wCnt_Next = 0; // reset the clock cycle for next
-                    
-                    if (rBit_Current != 7)
+                    wCnt_Next = 0; // reset the clock cycle for next                   
+                    if (rBit_Current < 9) 
                     begin
                         wFSM_Next = sRX_DATA;
-                        wRxData_Next = {rRx2,rRxData_Current[7:1]}; // shift rRxData_Current one bit to the right 
-                        wBit_Next = rBit_Current + 1; // increment the sent bit count
-                        
+                        wRxData_Next = {rRx2, rRxData_Current[7:1]}; // shift rRxData_Current one bit to the right 
+                        wBit_Next = rBit_Current + 1; // increment the sent bit count                       
                     end
                     else
                     begin
                         wFSM_Next = sRX_STOP;
-                        wBit_Next = 0;
+                        wBit_Next = 9;
                         wRxData_Next = rRxData_Current;
                     end
                 end
@@ -201,16 +197,8 @@ module uart_rx #(
   
   
   // Output oRxByte : easiest is to define it with a combinational
-  reg [7:0] rRxByte;
-  always @(*)
-  begin
-    if (rFSM_Current == sRX_START)
-      rRxByte = 0;
-    else
-      rRxByte = rRxData_Current;
-  end
   
-  assign oRxByte = rRxByte;
+  assign oRxByte = rRxData_Current;
   
   
   // Output oRxDone : easiest is to define it with a simple

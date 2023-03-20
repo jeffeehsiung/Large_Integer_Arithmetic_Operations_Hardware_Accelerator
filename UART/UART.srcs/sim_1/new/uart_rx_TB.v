@@ -52,7 +52,7 @@ module uart_rx_TB ();
     
       // circuit is reset
       rTxStart = 0;
-      rTxByte = 8'h56;
+      rTxByte = 8'h57;
       rRst = 1;
       #(5*T);
       

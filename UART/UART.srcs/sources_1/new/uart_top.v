@@ -12,8 +12,7 @@ module uart_top #(
     output  wire   oTx
   );
   
-  // Buffer to exchange data between Pynq-Z2 and laptop
-  reg [NBYTES*8-1:0] rBuffer;
+
 
   
   // State definition  
@@ -22,7 +21,6 @@ module uart_top #(
   localparam s_TX           = 3'b010;
   localparam s_WAIT_TX      = 3'b011;
   localparam s_DONE         = 3'b100;
-  localparam s_RX           = 3'b101;
    
   // Declare all variables needed for the finite state machine 
   // -> the FSM state
@@ -34,6 +32,11 @@ module uart_top #(
   
   wire        wTxBusy;
   wire        wTxDone;
+  
+ // Buffer to exchange data between Pynq-Z2 and laptop
+  reg [NBYTES*8-1:0] rBuffer;
+  
+  reg [$clog2(NBYTES):0] rCnt; // counting n-th byte
   
   // Connection to UART RX (inputs = registers, outputs = wires)
   
@@ -56,13 +59,12 @@ module uart_top #(
   UART_RX_INST
     (.iClk(iClk),
      .iRst(iRst),
-     .iRxSerial(oTx),
+     .iRxSerial(iRx),
      .oRxByte(wRxByte),
      .oRxDone(wRxDone)
      );
         
-  reg [$clog2(NBYTES):0] tCnt;
-  reg [$clog2(NBYTES):0] rCnt;
+
   
   always @(posedge iClk)
   begin
@@ -72,7 +74,6 @@ module uart_top #(
     begin
       rFSM <= s_IDLE;
       rTxStart <= 0;
-      tCnt <= 0;
       rTxByte <= 0;
       rCnt <= 0;
       rBuffer <= 0;
@@ -88,38 +89,37 @@ module uart_top #(
         
         s_WAIT_RX :
           begin    
-            if(wRxDone) begin
-                rBuffer <= {rBuffer[NBYTES*8-9:0],wRxByte};           // if the previous byte is recieved, continue to recieve new byte                                          
-//                rBuffer[7:0] <= wRxByte;                            // we receive and store in position from [current_byte_number*8-1:current_byte_number*8-8] and shift from right to left
+            if(wRxDone) begin                                         // if rx line is not busy and bytes count < bytes_to_be_sent
+                if (rCnt == NBYTES) begin                             // if this is the n-th byte, store the byte and go to TX      
+                    rFSM <= s_TX;                                         
+                    rBuffer <= {rBuffer[NBYTES*8-9:0], wRxByte};      // we receive and store in position from [current_byte_number*8-1:current_byte_number*8-8] and shift from right to left                                 
+                    rCnt <= 0;                                        // reset counter to 0
+                end else begin                                        // not yet reaching n-th byte, continue sampling,
+                rBuffer <= {rBuffer[NBYTES*8-9:0], wRxByte};                                                                            
                 rCnt <= rCnt+1;
-                if (rCnt == NBYTES) begin
-                    rFSM <= s_TX;                                     // if finished storing all bytes from TX. go back to TX state to allow furthur sending
-                    rCnt <= 0;                                        // set byte count to 0 for next round
-                end else begin
-                    rFSM <= s_WAIT_RX;                                // else continue to receive remaining bytes
-                end
-            end
-            else begin                                                // else if previous byte has not been fully recieved, stay in this state
-                rFSM <= s_WAIT_RX;
+                end                                       
+            end 
+            else begin
+                rFSM <= s_WAIT_RX;                                    // rx still busy, stay in this state
             end
           end
              
         s_TX :                                                        // state to prepare the tx_Nbytes (save into buffer)
           begin
-            if ( (tCnt < NBYTES) && (wTxBusy ==0) )                   // if tx line is not busy and bytes count < bytes_to_be_sent
+            if ( (rCnt < NBYTES) && (wTxBusy ==0) )                   // if tx line is not busy and bytes count < bytes_to_be_sent
               begin
                 rFSM <= s_WAIT_TX;                                    // next state is to go wait_for_Nbytes_tx_to_be_done buffer state
                 rTxStart <= 1; 
                 rTxByte <= rBuffer[NBYTES*8-1:NBYTES*8-8];            // we send the uppermost byte
                 rBuffer <= {rBuffer[NBYTES*8-9:0] , 8'b0000_0000};    // we shift from right to left
-                tCnt <= tCnt + 1;                                     
+                rCnt <= rCnt + 1;                                     
               end 
             else 
               begin                                                   // tCnt == NBYTES && wTxBusy || wTxBusy == 1
                 rFSM <= s_IDLE;                                    // finish preparing nbytes_tx_buffer, go to RX
                 rTxStart <= 0;                                        // reset all buffers
                 rTxByte <= 0;
-                tCnt <= 0;
+                rCnt <= 0;
               end
           end 
             
