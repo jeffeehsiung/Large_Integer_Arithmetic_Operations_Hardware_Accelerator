@@ -96,14 +96,14 @@ module uart_top #(
                     rFSM <= s_WAIT_RX;
                 end                           
                 if (rCnt == NBYTES) begin                             // if this is the n-th byte, store the byte and go to TX                                           
-                    rBuffer <= {rBuffer[NBYTES*8-9:0], wRxByte};      // we receive and store in position from [current_byte_number*8-1:current_byte_number*8-8] and shift from right to left                                 
+//                    rBuffer <= {rBuffer[NBYTES*8-9:0], wRxByte};      // we receive and store in position from [current_byte_number*8-1:current_byte_number*8-8] and shift from right to left                                 
                     rCnt <= 0;                                        // reset counter to 0
                     rFSM <= s_TX;
                 end                                     
             end else begin 
                 rFSM <= s_WAIT_RX;                                    // rx still busy, stay in this state
                 if (rCnt == NBYTES) begin                             // if this is the n-th byte, store the byte and go to TX                                           
-                    rBuffer <= {rBuffer[NBYTES*8-9:0], wRxByte};      // we receive and store in position from [current_byte_number*8-1:current_byte_number*8-8] and shift from right to left                                 
+//                    rBuffer <= {rBuffer[NBYTES*8-9:0], wRxByte};      // we receive and store in position from [current_byte_number*8-1:current_byte_number*8-8] and shift from right to left                                 
                     rCnt <= 0;                                        // reset counter to 0
                     rFSM <= s_TX;
                 end 
