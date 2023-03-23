@@ -156,7 +156,7 @@ module uart_rx #(
               wRxData_Next = rRxData_Current;
               wBit_Next = 0;
                
-              if (rCnt_Current < (CLKS_PER_BIT - 1) )
+              if (rCnt_Current < (CLKS_PER_BIT - 1)/2)
                 begin
                   wFSM_Next = sRX_STOP;
                   wCnt_Next = rCnt_Current + 1; // increment the clock cycle

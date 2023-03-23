@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Mon Mar 20 07:29:24 2023
-// Host        : ubuntu running 64-bit unknown
+// Date        : Thu Mar 23 10:35:42 2023
+// Host        : ubuntu running 64-bit Ubuntu 18.04.6 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/ip/uart_uart_top_0_0/uart_uart_top_0_0_sim_netlist.v
 // Design      : uart_uart_top_0_0
@@ -47,14 +47,14 @@ module uart_uart_top_0_0_uart_rx
     iRst,
     iRx,
     iClk,
-    p_1_in,
     Q,
+    \FSM_onehot_rFSM_reg[0] ,
+    \rBuffer_reg[0] ,
     \rCnt_reg[4] ,
     \rCnt_reg[4]_0 ,
-    \rCnt_reg[4]_1 ,
-    \rCnt_reg[4]_2 ,
     \rCnt_reg[0] ,
-    \FSM_onehot_rFSM_reg[0] );
+    \rCnt_reg[0]_0 ,
+    \FSM_onehot_rFSM_reg[0]_0 );
   output [0:0]E;
   output [4:0]D;
   output [0:0]\FSM_onehot_rFSM_reg[2] ;
@@ -63,34 +63,34 @@ module uart_uart_top_0_0_uart_rx
   input iRst;
   input iRx;
   input iClk;
-  input p_1_in;
-  input [3:0]Q;
-  input [4:0]\rCnt_reg[4] ;
+  input [4:0]Q;
+  input [3:0]\FSM_onehot_rFSM_reg[0] ;
+  input \rBuffer_reg[0] ;
+  input \rCnt_reg[4] ;
   input \rCnt_reg[4]_0 ;
-  input \rCnt_reg[4]_1 ;
-  input \rCnt_reg[4]_2 ;
   input \rCnt_reg[0] ;
-  input \FSM_onehot_rFSM_reg[0] ;
+  input \rCnt_reg[0]_0 ;
+  input \FSM_onehot_rFSM_reg[0]_0 ;
 
   wire [4:0]D;
   wire [0:0]E;
-  wire \FSM_onehot_rFSM_reg[0] ;
+  wire [3:0]\FSM_onehot_rFSM_reg[0] ;
+  wire \FSM_onehot_rFSM_reg[0]_0 ;
   wire [0:0]\FSM_onehot_rFSM_reg[1] ;
   wire [7:0]\FSM_onehot_rFSM_reg[1]_0 ;
   wire [0:0]\FSM_onehot_rFSM_reg[2] ;
-  wire [3:0]Q;
+  wire [4:0]Q;
   wire iClk;
   wire iRst;
   wire iRx;
-  wire p_1_in;
   wire \rBit_Current[3]_i_1_n_0 ;
   wire \rBit_Current[3]_i_3_n_0 ;
   wire \rBit_Current_reg_n_0_[0] ;
   wire \rBit_Current_reg_n_0_[1] ;
   wire \rBit_Current_reg_n_0_[2] ;
   wire \rBit_Current_reg_n_0_[3] ;
-  wire \rBuffer[95]_i_3_n_0 ;
-  wire \rCnt[4]_i_3_n_0 ;
+  wire \rBuffer_reg[0] ;
+  wire \rCnt[4]_i_4_n_0 ;
   wire [11:0]rCnt_Current;
   wire \rCnt_Current[0]_i_1__0_n_0 ;
   wire \rCnt_Current[10]_i_1__0_n_0 ;
@@ -105,17 +105,14 @@ module uart_uart_top_0_0_uart_rx
   wire \rCnt_Current[8]_i_1__0_n_0 ;
   wire \rCnt_Current[9]_i_1__0_n_0 ;
   wire \rCnt_reg[0] ;
-  wire [4:0]\rCnt_reg[4] ;
+  wire \rCnt_reg[0]_0 ;
+  wire \rCnt_reg[4] ;
   wire \rCnt_reg[4]_0 ;
-  wire \rCnt_reg[4]_1 ;
-  wire \rCnt_reg[4]_2 ;
   wire [2:0]rFSM_Current;
   wire \rFSM_Current[0]_i_2_n_0 ;
   wire \rFSM_Current[0]_i_3_n_0 ;
   wire \rFSM_Current[0]_i_4_n_0 ;
   wire \rFSM_Current[0]_i_5_n_0 ;
-  wire \rFSM_Current[1]_i_2_n_0 ;
-  wire \rFSM_Current[1]_i_3_n_0 ;
   wire \rFSM_Current[2]_i_2_n_0 ;
   wire \rFSM_Current[2]_i_3_n_0 ;
   wire \rFSM_Current[2]_i_4_n_0 ;
@@ -155,14 +152,14 @@ module uart_uart_top_0_0_uart_rx
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFF2)) 
     \FSM_onehot_rFSM[3]_i_1 
-       (.I0(Q[1]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [1]),
         .I1(wRxDone),
-        .I2(\FSM_onehot_rFSM_reg[0] ),
-        .I3(Q[3]),
-        .I4(Q[0]),
-        .I5(Q[2]),
+        .I2(\FSM_onehot_rFSM_reg[0] [2]),
+        .I3(\FSM_onehot_rFSM_reg[0] [0]),
+        .I4(\FSM_onehot_rFSM_reg[0] [3]),
+        .I5(\FSM_onehot_rFSM_reg[0]_0 ),
         .O(\FSM_onehot_rFSM_reg[1] ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'h02)) 
     \FSM_onehot_rFSM[3]_i_3 
@@ -170,7 +167,7 @@ module uart_uart_top_0_0_uart_rx
         .I1(rFSM_Current[1]),
         .I2(rFSM_Current[0]),
         .O(wRxDone));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'h000F0070)) 
     \rBit_Current[0]_i_1 
@@ -205,7 +202,7 @@ module uart_uart_top_0_0_uart_rx
        (.I0(rFSM_Current[0]),
         .I1(rFSM_Current[2]),
         .I2(rFSM_Current[1]),
-        .I3(\rFSM_Current[2]_i_2_n_0 ),
+        .I3(\rFSM_Current[0]_i_4_n_0 ),
         .O(\rBit_Current[3]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h1111111110000000)) 
@@ -217,7 +214,7 @@ module uart_uart_top_0_0_uart_rx
         .I4(\rBit_Current_reg_n_0_[1] ),
         .I5(\rBit_Current_reg_n_0_[3] ),
         .O(wBit_Next[3]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \rBit_Current[3]_i_3 
@@ -248,149 +245,144 @@ module uart_uart_top_0_0_uart_rx
         .D(wBit_Next[3]),
         .Q(\rBit_Current_reg_n_0_[3] ),
         .R(iRst));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \rBuffer[0]_i_1 
-       (.I0(Q[1]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [1]),
         .I1(rRxData_Current[0]),
         .O(\FSM_onehot_rFSM_reg[1]_0 [0]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \rBuffer[1]_i_1 
-       (.I0(Q[1]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [1]),
         .I1(rRxData_Current[1]),
         .O(\FSM_onehot_rFSM_reg[1]_0 [1]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \rBuffer[2]_i_1 
-       (.I0(Q[1]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [1]),
         .I1(rRxData_Current[2]),
         .O(\FSM_onehot_rFSM_reg[1]_0 [2]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \rBuffer[3]_i_1 
-       (.I0(Q[1]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [1]),
         .I1(rRxData_Current[3]),
         .O(\FSM_onehot_rFSM_reg[1]_0 [3]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \rBuffer[4]_i_1 
-       (.I0(Q[1]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [1]),
         .I1(rRxData_Current[4]),
         .O(\FSM_onehot_rFSM_reg[1]_0 [4]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \rBuffer[5]_i_1 
-       (.I0(Q[1]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [1]),
         .I1(rRxData_Current[5]),
         .O(\FSM_onehot_rFSM_reg[1]_0 [5]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \rBuffer[6]_i_1 
-       (.I0(Q[1]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [1]),
         .I1(rRxData_Current[6]),
         .O(\FSM_onehot_rFSM_reg[1]_0 [6]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \rBuffer[7]_i_1 
-       (.I0(Q[1]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [1]),
         .I1(rRxData_Current[7]),
         .O(\FSM_onehot_rFSM_reg[1]_0 [7]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT3 #(
-    .INIT(8'hEA)) 
-    \rBuffer[95]_i_1 
-       (.I0(\rBuffer[95]_i_3_n_0 ),
-        .I1(p_1_in),
-        .I2(Q[2]),
-        .O(E));
   LUT6 #(
-    .INIT(64'h4040404400000004)) 
-    \rBuffer[95]_i_3 
-       (.I0(\rCnt_reg[4] [4]),
-        .I1(Q[1]),
-        .I2(\rCnt_reg[0] ),
-        .I3(\rCnt_reg[4] [1]),
-        .I4(\rCnt_reg[4] [0]),
-        .I5(wRxDone),
-        .O(\rBuffer[95]_i_3_n_0 ));
+    .INIT(64'hFFFFFFFF00202020)) 
+    \rBuffer[95]_i_1 
+       (.I0(wRxDone),
+        .I1(Q[4]),
+        .I2(\FSM_onehot_rFSM_reg[0] [1]),
+        .I3(Q[3]),
+        .I4(Q[2]),
+        .I5(\rBuffer_reg[0] ),
+        .O(E));
   LUT3 #(
     .INIT(8'hF4)) 
     \rCnt[0]_i_1 
-       (.I0(\rCnt_reg[4] [0]),
-        .I1(\rCnt[4]_i_3_n_0 ),
-        .I2(Q[0]),
+       (.I0(Q[0]),
+        .I1(\rCnt[4]_i_4_n_0 ),
+        .I2(\FSM_onehot_rFSM_reg[0] [0]),
         .O(D[0]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
     .INIT(16'hAEEA)) 
     \rCnt[1]_i_1 
-       (.I0(Q[0]),
-        .I1(\rCnt[4]_i_3_n_0 ),
-        .I2(\rCnt_reg[4] [1]),
-        .I3(\rCnt_reg[4] [0]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [0]),
+        .I1(\rCnt[4]_i_4_n_0 ),
+        .I2(Q[1]),
+        .I3(Q[0]),
         .O(D[1]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'hAEEEEAAA)) 
     \rCnt[2]_i_1 
-       (.I0(Q[0]),
-        .I1(\rCnt[4]_i_3_n_0 ),
-        .I2(\rCnt_reg[4] [0]),
-        .I3(\rCnt_reg[4] [1]),
-        .I4(\rCnt_reg[4] [2]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [0]),
+        .I1(\rCnt[4]_i_4_n_0 ),
+        .I2(Q[0]),
+        .I3(Q[1]),
+        .I4(Q[2]),
         .O(D[2]));
   LUT6 #(
     .INIT(64'hAEEAEAEAEAEAEAEA)) 
     \rCnt[3]_i_1 
-       (.I0(Q[0]),
-        .I1(\rCnt[4]_i_3_n_0 ),
-        .I2(\rCnt_reg[4] [3]),
-        .I3(\rCnt_reg[4] [1]),
-        .I4(\rCnt_reg[4] [0]),
-        .I5(\rCnt_reg[4] [2]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [0]),
+        .I1(\rCnt[4]_i_4_n_0 ),
+        .I2(Q[3]),
+        .I3(Q[1]),
+        .I4(Q[0]),
+        .I5(Q[2]),
         .O(D[3]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT6 #(
+    .INIT(64'hEEEEAAAFAAAAAAAA)) 
     \rCnt[4]_i_1 
-       (.I0(\rBuffer[95]_i_3_n_0 ),
-        .I1(Q[2]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [2]),
+        .I1(wRxDone),
+        .I2(Q[0]),
+        .I3(Q[1]),
+        .I4(\rCnt_reg[0] ),
+        .I5(\rCnt_reg[0]_0 ),
         .O(\FSM_onehot_rFSM_reg[2] ));
   LUT5 #(
     .INIT(32'hAEEEEAAA)) 
     \rCnt[4]_i_2 
-       (.I0(Q[0]),
-        .I1(\rCnt[4]_i_3_n_0 ),
-        .I2(\rCnt_reg[4] [3]),
-        .I3(\rCnt_reg[4]_0 ),
-        .I4(\rCnt_reg[4] [4]),
+       (.I0(\FSM_onehot_rFSM_reg[0] [0]),
+        .I1(\rCnt[4]_i_4_n_0 ),
+        .I2(Q[3]),
+        .I3(\rCnt_reg[4] ),
+        .I4(Q[4]),
         .O(D[4]));
   LUT6 #(
     .INIT(64'hFFFFFFFF02000000)) 
-    \rCnt[4]_i_3 
-       (.I0(\rCnt_reg[4]_1 ),
+    \rCnt[4]_i_4 
+       (.I0(\rCnt_reg[4]_0 ),
         .I1(rFSM_Current[0]),
         .I2(rFSM_Current[1]),
         .I3(rFSM_Current[2]),
-        .I4(Q[1]),
-        .I5(\rCnt_reg[4]_2 ),
-        .O(\rCnt[4]_i_3_n_0 ));
+        .I4(\FSM_onehot_rFSM_reg[0] [1]),
+        .I5(\rBuffer_reg[0] ),
+        .O(\rCnt[4]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'h0000000055400040)) 
     \rCnt_Current[0]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(rCnt_Current[0]),
         .O(\rCnt_Current[0]_i_1__0_n_0 ));
@@ -398,9 +390,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[10]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry__1_n_6),
         .O(\rCnt_Current[10]_i_1__0_n_0 ));
@@ -408,9 +400,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[11]_i_1 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry__1_n_5),
         .O(\rCnt_Current[11]_i_1_n_0 ));
@@ -418,9 +410,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[1]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry_n_7),
         .O(\rCnt_Current[1]_i_1__0_n_0 ));
@@ -428,9 +420,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[2]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry_n_6),
         .O(\rCnt_Current[2]_i_1__0_n_0 ));
@@ -438,9 +430,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[3]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry_n_5),
         .O(\rCnt_Current[3]_i_1__0_n_0 ));
@@ -448,9 +440,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[4]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry_n_4),
         .O(\rCnt_Current[4]_i_1__0_n_0 ));
@@ -458,9 +450,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[5]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry__0_n_7),
         .O(\rCnt_Current[5]_i_1__0_n_0 ));
@@ -468,9 +460,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[6]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry__0_n_6),
         .O(\rCnt_Current[6]_i_1__0_n_0 ));
@@ -478,9 +470,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[7]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry__0_n_5),
         .O(\rCnt_Current[7]_i_1__0_n_0 ));
@@ -488,9 +480,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[8]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry__0_n_4),
         .O(\rCnt_Current[8]_i_1__0_n_0 ));
@@ -498,9 +490,9 @@ module uart_uart_top_0_0_uart_rx
     .INIT(64'h5540004000000000)) 
     \rCnt_Current[9]_i_1__0 
        (.I0(rFSM_Current[2]),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[0]),
-        .I3(rFSM_Current[1]),
+        .I1(\rFSM_Current[0]_i_4_n_0 ),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[0]),
         .I4(\rFSM_Current[2]_i_2_n_0 ),
         .I5(wCnt_Next0_carry__1_n_7),
         .O(\rCnt_Current[9]_i_1__0_n_0 ));
@@ -577,79 +569,62 @@ module uart_uart_top_0_0_uart_rx
         .Q(rCnt_Current[9]),
         .R(iRst));
   LUT6 #(
-    .INIT(64'hFFF8FFF8FFFFFF88)) 
+    .INIT(64'hAEAEAEAEFFAEAEAE)) 
     \rFSM_Current[0]_i_1 
        (.I0(\rFSM_Current[0]_i_2_n_0 ),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(\rFSM_Current[0]_i_3_n_0 ),
-        .I3(\rFSM_Current[0]_i_4_n_0 ),
-        .I4(\rFSM_Current[0]_i_5_n_0 ),
-        .I5(\rFSM_Current[2]_i_2_n_0 ),
+        .I1(\rFSM_Current[0]_i_3_n_0 ),
+        .I2(\rFSM_Current[0]_i_4_n_0 ),
+        .I3(\rFSM_Current[2]_i_2_n_0 ),
+        .I4(rFSM_Current[0]),
+        .I5(rFSM_Current[2]),
         .O(wFSM_Next[0]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT3 #(
-    .INIT(8'h10)) 
-    \rFSM_Current[0]_i_2 
-       (.I0(rFSM_Current[1]),
-        .I1(rFSM_Current[2]),
-        .I2(rFSM_Current[0]),
-        .O(\rFSM_Current[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT3 #(
-    .INIT(8'h08)) 
-    \rFSM_Current[0]_i_3 
-       (.I0(rFSM_Current[0]),
-        .I1(rFSM_Current[1]),
-        .I2(rFSM_Current[2]),
-        .O(\rFSM_Current[0]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
     .INIT(16'h0001)) 
-    \rFSM_Current[0]_i_4 
+    \rFSM_Current[0]_i_2 
        (.I0(iRx),
-        .I1(rFSM_Current[0]),
+        .I1(rFSM_Current[2]),
         .I2(rFSM_Current[1]),
-        .I3(rFSM_Current[2]),
-        .O(\rFSM_Current[0]_i_4_n_0 ));
+        .I3(rFSM_Current[0]),
+        .O(\rFSM_Current[0]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'h000000000000AAA8)) 
-    \rFSM_Current[0]_i_5 
+    \rFSM_Current[0]_i_3 
        (.I0(\rBit_Current_reg_n_0_[3] ),
         .I1(\rBit_Current_reg_n_0_[2] ),
         .I2(\rBit_Current_reg_n_0_[1] ),
         .I3(\rBit_Current_reg_n_0_[0] ),
         .I4(rFSM_Current[0]),
         .I5(\rBit_Current[3]_i_3_n_0 ),
-        .O(\rFSM_Current[0]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+        .O(\rFSM_Current[0]_i_3_n_0 ));
   LUT5 #(
-    .INIT(32'h00A300F0)) 
-    \rFSM_Current[1]_i_1 
-       (.I0(\rFSM_Current[2]_i_2_n_0 ),
-        .I1(\rFSM_Current[1]_i_2_n_0 ),
-        .I2(rFSM_Current[1]),
-        .I3(rFSM_Current[2]),
-        .I4(rFSM_Current[0]),
-        .O(wFSM_Next[1]));
-  LUT6 #(
-    .INIT(64'h1101110101011101)) 
-    \rFSM_Current[1]_i_2 
-       (.I0(rCnt_Current[11]),
-        .I1(rCnt_Current[10]),
-        .I2(rCnt_Current[9]),
-        .I3(\rFSM_Current[1]_i_3_n_0 ),
-        .I4(rCnt_Current[1]),
-        .I5(\rFSM_Current[2]_i_3_n_0 ),
-        .O(\rFSM_Current[1]_i_2_n_0 ));
-  LUT4 #(
-    .INIT(16'h0001)) 
-    \rFSM_Current[1]_i_3 
-       (.I0(rCnt_Current[6]),
+    .INIT(32'hB0B0B0FF)) 
+    \rFSM_Current[0]_i_4 
+       (.I0(\rFSM_Current[2]_i_4_n_0 ),
         .I1(rCnt_Current[5]),
-        .I2(rCnt_Current[8]),
-        .I3(rCnt_Current[7]),
-        .O(\rFSM_Current[1]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+        .I2(\rFSM_Current[0]_i_5_n_0 ),
+        .I3(rCnt_Current[10]),
+        .I4(rCnt_Current[11]),
+        .O(\rFSM_Current[0]_i_4_n_0 ));
+  LUT5 #(
+    .INIT(32'h00000001)) 
+    \rFSM_Current[0]_i_5 
+       (.I0(rCnt_Current[11]),
+        .I1(rCnt_Current[6]),
+        .I2(rCnt_Current[7]),
+        .I3(rCnt_Current[9]),
+        .I4(rCnt_Current[8]),
+        .O(\rFSM_Current[0]_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT4 #(
+    .INIT(16'h3012)) 
+    \rFSM_Current[1]_i_1 
+       (.I0(rFSM_Current[0]),
+        .I1(rFSM_Current[2]),
+        .I2(rFSM_Current[1]),
+        .I3(\rFSM_Current[2]_i_2_n_0 ),
+        .O(wFSM_Next[1]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h0040)) 
     \rFSM_Current[2]_i_1 
@@ -658,30 +633,30 @@ module uart_uart_top_0_0_uart_rx
         .I2(rFSM_Current[0]),
         .I3(\rFSM_Current[2]_i_2_n_0 ),
         .O(wFSM_Next[2]));
-  LUT5 #(
-    .INIT(32'hB0B0B0FF)) 
+  LUT6 #(
+    .INIT(64'h1101110101011101)) 
     \rFSM_Current[2]_i_2 
-       (.I0(\rFSM_Current[2]_i_3_n_0 ),
-        .I1(rCnt_Current[5]),
-        .I2(\rFSM_Current[2]_i_4_n_0 ),
-        .I3(rCnt_Current[10]),
-        .I4(rCnt_Current[11]),
+       (.I0(rCnt_Current[11]),
+        .I1(rCnt_Current[10]),
+        .I2(rCnt_Current[9]),
+        .I3(\rFSM_Current[2]_i_3_n_0 ),
+        .I4(rCnt_Current[1]),
+        .I5(\rFSM_Current[2]_i_4_n_0 ),
         .O(\rFSM_Current[2]_i_2_n_0 ));
+  LUT4 #(
+    .INIT(16'h0001)) 
+    \rFSM_Current[2]_i_3 
+       (.I0(rCnt_Current[6]),
+        .I1(rCnt_Current[5]),
+        .I2(rCnt_Current[8]),
+        .I3(rCnt_Current[7]),
+        .O(\rFSM_Current[2]_i_3_n_0 ));
   LUT3 #(
     .INIT(8'h7F)) 
-    \rFSM_Current[2]_i_3 
+    \rFSM_Current[2]_i_4 
        (.I0(rCnt_Current[3]),
         .I1(rCnt_Current[2]),
         .I2(rCnt_Current[4]),
-        .O(\rFSM_Current[2]_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'h00000001)) 
-    \rFSM_Current[2]_i_4 
-       (.I0(rCnt_Current[11]),
-        .I1(rCnt_Current[6]),
-        .I2(rCnt_Current[7]),
-        .I3(rCnt_Current[9]),
-        .I4(rCnt_Current[8]),
         .O(\rFSM_Current[2]_i_4_n_0 ));
   FDRE \rFSM_Current_reg[0] 
        (.C(iClk),
@@ -715,14 +690,14 @@ module uart_uart_top_0_0_uart_rx
         .R(iRst));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT4 #(
-    .INIT(16'h0A0C)) 
+    .INIT(16'h00AC)) 
     \rRxData_Current[0]_i_1 
        (.I0(rRxData_Current[1]),
         .I1(rRx2),
-        .I2(rFSM_Current[2]),
-        .I3(rFSM_Current[1]),
+        .I2(rFSM_Current[1]),
+        .I3(rFSM_Current[2]),
         .O(wRxData_Next[0]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \rRxData_Current[1]_i_1 
@@ -730,7 +705,7 @@ module uart_uart_top_0_0_uart_rx
         .I1(rFSM_Current[1]),
         .I2(rFSM_Current[2]),
         .O(wRxData_Next[1]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \rRxData_Current[2]_i_1 
@@ -738,7 +713,7 @@ module uart_uart_top_0_0_uart_rx
         .I1(rFSM_Current[1]),
         .I2(rFSM_Current[2]),
         .O(wRxData_Next[2]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \rRxData_Current[3]_i_1 
@@ -746,7 +721,7 @@ module uart_uart_top_0_0_uart_rx
         .I1(rFSM_Current[1]),
         .I2(rFSM_Current[2]),
         .O(wRxData_Next[3]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \rRxData_Current[4]_i_1 
@@ -754,7 +729,7 @@ module uart_uart_top_0_0_uart_rx
         .I1(rFSM_Current[1]),
         .I2(rFSM_Current[2]),
         .O(wRxData_Next[4]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \rRxData_Current[5]_i_1 
@@ -762,7 +737,7 @@ module uart_uart_top_0_0_uart_rx
         .I1(rFSM_Current[1]),
         .I2(rFSM_Current[2]),
         .O(wRxData_Next[5]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \rRxData_Current[6]_i_1 
@@ -775,7 +750,7 @@ module uart_uart_top_0_0_uart_rx
     \rRxData_Current[7]_i_1 
        (.I0(iRx),
         .I1(rFSM_Current[2]),
-        .I2(\rFSM_Current[2]_i_2_n_0 ),
+        .I2(\rFSM_Current[0]_i_4_n_0 ),
         .I3(rFSM_Current[0]),
         .I4(rFSM_Current[1]),
         .I5(\rRxData_Current[7]_i_3_n_0 ),
@@ -905,8 +880,8 @@ module uart_uart_top_0_0_uart_top
   wire UART_TX_INST_n_0;
   wire UART_TX_INST_n_1;
   wire UART_TX_INST_n_10;
-  wire UART_TX_INST_n_12;
-  wire UART_TX_INST_n_14;
+  wire UART_TX_INST_n_11;
+  wire UART_TX_INST_n_13;
   wire UART_TX_INST_n_2;
   wire UART_TX_INST_n_3;
   wire UART_TX_INST_n_4;
@@ -920,7 +895,6 @@ module uart_uart_top_0_0_uart_top
   wire iRx;
   wire [95:8]in8;
   wire oTx;
-  wire p_1_in;
   wire rBuffer;
   wire \rBuffer[10]_i_1_n_0 ;
   wire \rBuffer[11]_i_1_n_0 ;
@@ -1019,8 +993,9 @@ module uart_uart_top_0_0_uart_top
   wire \rBuffer_reg_n_0_[94] ;
   wire \rBuffer_reg_n_0_[95] ;
   wire rCnt;
-  wire \rCnt[4]_i_4_n_0 ;
+  wire \rCnt[4]_i_3_n_0 ;
   wire \rCnt[4]_i_5_n_0 ;
+  wire \rCnt[4]_i_6_n_0 ;
   wire \rCnt_reg_n_0_[0] ;
   wire \rCnt_reg_n_0_[1] ;
   wire \rCnt_reg_n_0_[2] ;
@@ -1035,36 +1010,36 @@ module uart_uart_top_0_0_uart_top
     \FSM_onehot_rFSM[1]_i_1 
        (.I0(\FSM_onehot_rFSM[1]_i_2_n_0 ),
         .I1(\rCnt_reg_n_0_[1] ),
-        .I2(\rCnt_reg_n_0_[4] ),
-        .I3(\rCnt_reg_n_0_[0] ),
+        .I2(\rCnt_reg_n_0_[0] ),
+        .I3(\rCnt_reg_n_0_[4] ),
         .I4(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .I5(\FSM_onehot_rFSM_reg_n_0_[0] ),
         .O(\FSM_onehot_rFSM[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \FSM_onehot_rFSM[1]_i_2 
        (.I0(\rCnt_reg_n_0_[2] ),
         .I1(\rCnt_reg_n_0_[3] ),
         .O(\FSM_onehot_rFSM[1]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
-  LUT4 #(
-    .INIT(16'h1000)) 
-    \FSM_onehot_rFSM[2]_i_2 
-       (.I0(\rCnt_reg_n_0_[1] ),
-        .I1(\rCnt_reg_n_0_[0] ),
-        .I2(\rCnt_reg_n_0_[3] ),
-        .I3(\rCnt_reg_n_0_[2] ),
-        .O(\FSM_onehot_rFSM[2]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h0444044404444444)) 
-    \FSM_onehot_rFSM[3]_i_4 
+    .INIT(64'h0000000000004000)) 
+    \FSM_onehot_rFSM[2]_i_2 
        (.I0(\rCnt_reg_n_0_[4] ),
         .I1(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .I2(\rCnt_reg_n_0_[2] ),
         .I3(\rCnt_reg_n_0_[3] ),
         .I4(\rCnt_reg_n_0_[1] ),
         .I5(\rCnt_reg_n_0_[0] ),
+        .O(\FSM_onehot_rFSM[2]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h000000001FFF0000)) 
+    \FSM_onehot_rFSM[3]_i_4 
+       (.I0(\rCnt_reg_n_0_[1] ),
+        .I1(\rCnt_reg_n_0_[0] ),
+        .I2(\rCnt_reg_n_0_[2] ),
+        .I3(\rCnt_reg_n_0_[3] ),
+        .I4(\FSM_onehot_rFSM_reg_n_0_[1] ),
+        .I5(\rCnt_reg_n_0_[4] ),
         .O(\FSM_onehot_rFSM[3]_i_4_n_0 ));
   (* FSM_ENCODED_STATES = "s_DONE:100,s_WAIT_RX:0010,s_IDLE:0001,s_WAIT_TX:1000,s_TX:0100" *) 
   FDSE #(
@@ -1105,36 +1080,35 @@ module uart_uart_top_0_0_uart_top
   uart_uart_top_0_0_uart_rx UART_RX_INST
        (.D({UART_RX_INST_n_1,UART_RX_INST_n_2,UART_RX_INST_n_3,UART_RX_INST_n_4,UART_RX_INST_n_5}),
         .E(rBuffer),
-        .\FSM_onehot_rFSM_reg[0] (\FSM_onehot_rFSM[3]_i_4_n_0 ),
+        .\FSM_onehot_rFSM_reg[0] ({\FSM_onehot_rFSM_reg_n_0_[3] ,rTxByte_0,\FSM_onehot_rFSM_reg_n_0_[1] ,\FSM_onehot_rFSM_reg_n_0_[0] }),
+        .\FSM_onehot_rFSM_reg[0]_0 (\FSM_onehot_rFSM[3]_i_4_n_0 ),
         .\FSM_onehot_rFSM_reg[1] (UART_RX_INST_n_7),
         .\FSM_onehot_rFSM_reg[1]_0 ({UART_RX_INST_n_8,UART_RX_INST_n_9,UART_RX_INST_n_10,UART_RX_INST_n_11,UART_RX_INST_n_12,UART_RX_INST_n_13,UART_RX_INST_n_14,UART_RX_INST_n_15}),
         .\FSM_onehot_rFSM_reg[2] (rCnt),
-        .Q({\FSM_onehot_rFSM_reg_n_0_[3] ,rTxByte_0,\FSM_onehot_rFSM_reg_n_0_[1] ,\FSM_onehot_rFSM_reg_n_0_[0] }),
+        .Q({\rCnt_reg_n_0_[4] ,\rCnt_reg_n_0_[3] ,\rCnt_reg_n_0_[2] ,\rCnt_reg_n_0_[1] ,\rCnt_reg_n_0_[0] }),
         .iClk(iClk),
         .iRst(iRst),
         .iRx(iRx),
-        .p_1_in(p_1_in),
+        .\rBuffer_reg[0] (UART_TX_INST_n_11),
         .\rCnt_reg[0] (\FSM_onehot_rFSM[1]_i_2_n_0 ),
-        .\rCnt_reg[4] ({\rCnt_reg_n_0_[4] ,\rCnt_reg_n_0_[3] ,\rCnt_reg_n_0_[2] ,\rCnt_reg_n_0_[1] ,\rCnt_reg_n_0_[0] }),
-        .\rCnt_reg[4]_0 (\rCnt[4]_i_4_n_0 ),
-        .\rCnt_reg[4]_1 (\rCnt[4]_i_5_n_0 ),
-        .\rCnt_reg[4]_2 (UART_TX_INST_n_12));
+        .\rCnt_reg[0]_0 (\rCnt[4]_i_3_n_0 ),
+        .\rCnt_reg[4] (\rCnt[4]_i_5_n_0 ),
+        .\rCnt_reg[4]_0 (\rCnt[4]_i_6_n_0 ));
   uart_uart_top_0_0_uart_tx UART_TX_INST
        (.D({UART_TX_INST_n_0,UART_TX_INST_n_1,UART_TX_INST_n_2,UART_TX_INST_n_3,UART_TX_INST_n_4,UART_TX_INST_n_5,UART_TX_INST_n_6,UART_TX_INST_n_7}),
         .\FSM_onehot_rFSM_Current_reg[4]_0 ({UART_TX_INST_n_8,UART_TX_INST_n_9,UART_TX_INST_n_10}),
-        .\FSM_onehot_rFSM_Current_reg[4]_1 (UART_TX_INST_n_14),
-        .\FSM_onehot_rFSM_reg[2] (UART_TX_INST_n_12),
+        .\FSM_onehot_rFSM_Current_reg[4]_1 (UART_TX_INST_n_13),
+        .\FSM_onehot_rFSM_reg[2] (UART_TX_INST_n_11),
         .\FSM_onehot_rFSM_reg[2]_0 (\FSM_onehot_rFSM[2]_i_2_n_0 ),
         .Q({\rCnt_reg_n_0_[4] ,\rCnt_reg_n_0_[3] ,\rCnt_reg_n_0_[2] }),
         .iClk(iClk),
         .iRst(iRst),
         .oTx(oTx),
-        .p_1_in(p_1_in),
         .\rTxByte_reg[7] ({\rBuffer_reg_n_0_[95] ,\rBuffer_reg_n_0_[94] ,\rBuffer_reg_n_0_[93] ,\rBuffer_reg_n_0_[92] ,\rBuffer_reg_n_0_[91] ,\rBuffer_reg_n_0_[90] ,\rBuffer_reg_n_0_[89] ,\rBuffer_reg_n_0_[88] }),
         .\rTxData_Current_reg[7]_0 (rTxByte),
-        .rTxStart_reg({\FSM_onehot_rFSM_reg_n_0_[3] ,rTxByte_0,\FSM_onehot_rFSM_reg_n_0_[1] }),
+        .rTxStart_reg({\FSM_onehot_rFSM_reg_n_0_[3] ,rTxByte_0}),
         .rTxStart_reg_0(rTxStart_reg_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[10]_i_1 
@@ -1142,7 +1116,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[11]_i_1 
@@ -1150,7 +1124,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[12]_i_1 
@@ -1158,7 +1132,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[13]_i_1 
@@ -1166,7 +1140,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[14]_i_1 
@@ -1174,7 +1148,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[14]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[15]_i_1 
@@ -1182,7 +1156,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[16]_i_1 
@@ -1190,7 +1164,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[16]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[17]_i_1 
@@ -1198,7 +1172,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[17]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[18]_i_1 
@@ -1206,7 +1180,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[18]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[19]_i_1 
@@ -1214,7 +1188,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[19]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[20]_i_1 
@@ -1222,7 +1196,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[20]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[21]_i_1 
@@ -1230,7 +1204,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[21]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[22]_i_1 
@@ -1238,7 +1212,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[22]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[23]_i_1 
@@ -1246,7 +1220,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[23]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[24]_i_1 
@@ -1254,7 +1228,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[24]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[25]_i_1 
@@ -1262,7 +1236,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[25]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[26]_i_1 
@@ -1270,7 +1244,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[26]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[27]_i_1 
@@ -1278,7 +1252,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[27]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[28]_i_1 
@@ -1286,7 +1260,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[28]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[29]_i_1 
@@ -1294,7 +1268,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[29]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[30]_i_1 
@@ -1302,7 +1276,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[30]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[31]_i_1 
@@ -1310,7 +1284,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[32]_i_1 
@@ -1318,7 +1292,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[32]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[33]_i_1 
@@ -1326,7 +1300,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[33]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[34]_i_1 
@@ -1334,7 +1308,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[34]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[35]_i_1 
@@ -1342,7 +1316,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[35]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[36]_i_1 
@@ -1350,7 +1324,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[36]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[37]_i_1 
@@ -1358,7 +1332,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[37]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[38]_i_1 
@@ -1366,7 +1340,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[38]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[39]_i_1 
@@ -1374,7 +1348,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[39]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[40]_i_1 
@@ -1382,7 +1356,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[40]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[41]_i_1 
@@ -1390,7 +1364,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[41]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[42]_i_1 
@@ -1398,7 +1372,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[42]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[43]_i_1 
@@ -1406,7 +1380,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[43]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[44]_i_1 
@@ -1414,7 +1388,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[44]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[45]_i_1 
@@ -1422,7 +1396,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[45]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[46]_i_1 
@@ -1430,7 +1404,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[46]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[47]_i_1 
@@ -1438,7 +1412,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[47]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[48]_i_1 
@@ -1446,7 +1420,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[48]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[49]_i_1 
@@ -1454,7 +1428,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[49]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[50]_i_1 
@@ -1462,7 +1436,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[50]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[51]_i_1 
@@ -1470,7 +1444,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[51]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[52]_i_1 
@@ -1478,7 +1452,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[52]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[53]_i_1 
@@ -1486,7 +1460,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[53]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[54]_i_1 
@@ -1494,7 +1468,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[54]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[55]_i_1 
@@ -1502,7 +1476,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[55]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[56]_i_1 
@@ -1510,7 +1484,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[56]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[57]_i_1 
@@ -1518,7 +1492,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[57]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[58]_i_1 
@@ -1526,7 +1500,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[58]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[59]_i_1 
@@ -1534,7 +1508,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[59]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[60]_i_1 
@@ -1542,7 +1516,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[60]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[61]_i_1 
@@ -1550,7 +1524,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[61]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[62]_i_1 
@@ -1558,7 +1532,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[62]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[63]_i_1 
@@ -1566,7 +1540,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[63]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[64]_i_1 
@@ -1574,7 +1548,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[64]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[65]_i_1 
@@ -1582,7 +1556,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[65]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[66]_i_1 
@@ -1590,7 +1564,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[66]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[67]_i_1 
@@ -1598,7 +1572,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[67]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[68]_i_1 
@@ -1606,7 +1580,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[68]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[69]_i_1 
@@ -1614,7 +1588,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[69]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[70]_i_1 
@@ -1622,7 +1596,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[70]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[71]_i_1 
@@ -1630,7 +1604,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[71]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[72]_i_1 
@@ -1638,7 +1612,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[72]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[73]_i_1 
@@ -1646,7 +1620,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[73]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[74]_i_1 
@@ -1654,7 +1628,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[74]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[75]_i_1 
@@ -1662,7 +1636,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[75]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[76]_i_1 
@@ -1670,7 +1644,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[76]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[77]_i_1 
@@ -1678,7 +1652,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[77]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[78]_i_1 
@@ -1686,7 +1660,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[78]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[79]_i_1 
@@ -1694,7 +1668,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[79]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[80]_i_1 
@@ -1702,7 +1676,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[80]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[81]_i_1 
@@ -1710,7 +1684,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[81]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[82]_i_1 
@@ -1718,7 +1692,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[82]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[83]_i_1 
@@ -1726,7 +1700,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[83]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[84]_i_1 
@@ -1734,7 +1708,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[84]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[85]_i_1 
@@ -1742,7 +1716,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[85]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[86]_i_1 
@@ -1750,7 +1724,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[86]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[87]_i_1 
@@ -1758,7 +1732,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[87]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[88]_i_1 
@@ -1766,7 +1740,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[88]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[89]_i_1 
@@ -1774,7 +1748,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[89]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[8]_i_1 
@@ -1782,7 +1756,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[90]_i_1 
@@ -1790,7 +1764,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[90]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[91]_i_1 
@@ -1798,7 +1772,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[91]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[92]_i_1 
@@ -1806,7 +1780,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[92]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[93]_i_1 
@@ -1814,7 +1788,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[93]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[94]_i_1 
@@ -1822,7 +1796,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[94]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[95]_i_2 
@@ -1830,7 +1804,7 @@ module uart_uart_top_0_0_uart_top
         .I1(rTxByte_0),
         .I2(\FSM_onehot_rFSM_reg_n_0_[1] ),
         .O(\rBuffer[95]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \rBuffer[9]_i_1 
@@ -2414,24 +2388,30 @@ module uart_uart_top_0_0_uart_top
         .D(\rBuffer[9]_i_1_n_0 ),
         .Q(in8[17]),
         .R(iRst));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \rCnt[4]_i_3 
+       (.I0(\FSM_onehot_rFSM_reg_n_0_[1] ),
+        .I1(\rCnt_reg_n_0_[4] ),
+        .O(\rCnt[4]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'h80)) 
-    \rCnt[4]_i_4 
+    \rCnt[4]_i_5 
        (.I0(\rCnt_reg_n_0_[2] ),
         .I1(\rCnt_reg_n_0_[0] ),
         .I2(\rCnt_reg_n_0_[1] ),
-        .O(\rCnt[4]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+        .O(\rCnt[4]_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT5 #(
     .INIT(32'hFFFFFFF7)) 
-    \rCnt[4]_i_5 
+    \rCnt[4]_i_6 
        (.I0(\rCnt_reg_n_0_[2] ),
         .I1(\rCnt_reg_n_0_[3] ),
         .I2(\rCnt_reg_n_0_[1] ),
-        .I3(\rCnt_reg_n_0_[4] ),
-        .I4(\rCnt_reg_n_0_[0] ),
-        .O(\rCnt[4]_i_5_n_0 ));
+        .I3(\rCnt_reg_n_0_[0] ),
+        .I4(\rCnt_reg_n_0_[4] ),
+        .O(\rCnt[4]_i_6_n_0 ));
   FDRE \rCnt_reg[0] 
        (.C(iClk),
         .CE(rCnt),
@@ -2513,7 +2493,7 @@ module uart_uart_top_0_0_uart_top
   FDRE rTxStart_reg
        (.C(iClk),
         .CE(1'b1),
-        .D(UART_TX_INST_n_14),
+        .D(UART_TX_INST_n_13),
         .Q(rTxStart_reg_n_0),
         .R(iRst));
 endmodule
@@ -2522,7 +2502,6 @@ endmodule
 module uart_uart_top_0_0_uart_tx
    (D,
     \FSM_onehot_rFSM_Current_reg[4]_0 ,
-    p_1_in,
     \FSM_onehot_rFSM_reg[2] ,
     oTx,
     \FSM_onehot_rFSM_Current_reg[4]_1 ,
@@ -2536,13 +2515,12 @@ module uart_uart_top_0_0_uart_tx
     iClk);
   output [7:0]D;
   output [2:0]\FSM_onehot_rFSM_Current_reg[4]_0 ;
-  output p_1_in;
   output \FSM_onehot_rFSM_reg[2] ;
   output oTx;
   output \FSM_onehot_rFSM_Current_reg[4]_1 ;
   input [2:0]Q;
   input [7:0]\rTxByte_reg[7] ;
-  input [2:0]rTxStart_reg;
+  input [1:0]rTxStart_reg;
   input \FSM_onehot_rFSM_reg[2]_0 ;
   input rTxStart_reg_0;
   input [7:0]\rTxData_Current_reg[7]_0 ;
@@ -2616,7 +2594,7 @@ module uart_uart_top_0_0_uart_tx
   wire \rTxData_Current[7]_i_3_n_0 ;
   wire [7:0]\rTxData_Current_reg[7]_0 ;
   wire \rTxData_Current_reg_n_0_[0] ;
-  wire [2:0]rTxStart_reg;
+  wire [1:0]rTxStart_reg;
   wire rTxStart_reg_0;
   wire wBit_Next;
   wire wTxData_Next;
@@ -2625,30 +2603,28 @@ module uart_uart_top_0_0_uart_tx
   LUT6 #(
     .INIT(64'hAAAAAAAAAA020202)) 
     \FSM_onehot_rFSM[0]_i_1 
-       (.I0(rTxStart_reg[1]),
+       (.I0(rTxStart_reg[0]),
         .I1(\FSM_onehot_rFSM_Current_reg_n_0_[0] ),
         .I2(wTxDone),
         .I3(Q[1]),
         .I4(Q[0]),
         .I5(Q[2]),
         .O(\FSM_onehot_rFSM_Current_reg[4]_0 [0]));
-  LUT5 #(
-    .INIT(32'hFF202020)) 
+  LUT3 #(
+    .INIT(8'hEA)) 
     \FSM_onehot_rFSM[2]_i_1 
-       (.I0(rTxStart_reg[0]),
-        .I1(Q[2]),
-        .I2(\FSM_onehot_rFSM_reg[2]_0 ),
-        .I3(wTxDone),
-        .I4(rTxStart_reg[2]),
+       (.I0(\FSM_onehot_rFSM_reg[2]_0 ),
+        .I1(wTxDone),
+        .I2(rTxStart_reg[1]),
         .O(\FSM_onehot_rFSM_Current_reg[4]_0 [1]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT4 #(
     .INIT(16'hF444)) 
     \FSM_onehot_rFSM[3]_i_2 
        (.I0(wTxDone),
-        .I1(rTxStart_reg[2]),
+        .I1(rTxStart_reg[1]),
         .I2(p_1_in),
-        .I3(rTxStart_reg[1]),
+        .I3(rTxStart_reg[0]),
         .O(\FSM_onehot_rFSM_Current_reg[4]_0 [2]));
   LUT5 #(
     .INIT(32'h15151500)) 
@@ -2659,7 +2635,7 @@ module uart_uart_top_0_0_uart_tx
         .I3(wTxDone),
         .I4(\FSM_onehot_rFSM_Current_reg_n_0_[0] ),
         .O(p_1_in));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hF4)) 
     \FSM_onehot_rFSM_Current[0]_i_1 
@@ -2667,7 +2643,7 @@ module uart_uart_top_0_0_uart_tx
         .I1(\FSM_onehot_rFSM_Current_reg_n_0_[0] ),
         .I2(wTxDone),
         .O(\FSM_onehot_rFSM_Current[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'hF888)) 
     \FSM_onehot_rFSM_Current[1]_i_1 
@@ -2696,7 +2672,7 @@ module uart_uart_top_0_0_uart_tx
         .I4(rBit_Current[1]),
         .I5(rBit_Current[0]),
         .O(\FSM_onehot_rFSM_Current[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \FSM_onehot_rFSM_Current[4]_i_1 
@@ -2713,7 +2689,7 @@ module uart_uart_top_0_0_uart_tx
         .I4(\rCnt_Current_reg_n_0_[8] ),
         .I5(\rCnt_Current_reg_n_0_[10] ),
         .O(\FSM_onehot_rFSM_Current[4]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT4 #(
     .INIT(16'h7FFF)) 
     \FSM_onehot_rFSM_Current[4]_i_3 
@@ -2774,7 +2750,7 @@ module uart_uart_top_0_0_uart_tx
         .I1(\FSM_onehot_rFSM_Current_reg_n_0_[2] ),
         .I2(\FSM_onehot_rFSM_Current_reg_n_0_[1] ),
         .O(oTx));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'h38)) 
     \rBit_Current[0]_i_1 
@@ -2782,7 +2758,7 @@ module uart_uart_top_0_0_uart_tx
         .I1(wBit_Next),
         .I2(rBit_Current[0]),
         .O(\rBit_Current[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT4 #(
     .INIT(16'h2F80)) 
     \rBit_Current[1]_i_1 
@@ -2791,7 +2767,7 @@ module uart_uart_top_0_0_uart_tx
         .I2(wBit_Next),
         .I3(rBit_Current[1]),
         .O(\rBit_Current[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'h2AFF8000)) 
     \rBit_Current[2]_i_1 
@@ -2811,7 +2787,7 @@ module uart_uart_top_0_0_uart_tx
         .I4(\rCnt_Current_reg_n_0_[10] ),
         .I5(\FSM_onehot_rFSM_Current_reg_n_0_[2] ),
         .O(wBit_Next));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \rBit_Current[2]_i_3 
@@ -2820,7 +2796,7 @@ module uart_uart_top_0_0_uart_tx
         .I2(\FSM_onehot_rFSM_Current_reg_n_0_[3] ),
         .I3(\FSM_onehot_rFSM_Current_reg_n_0_[1] ),
         .O(\rBit_Current[2]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'h7F)) 
     \rBit_Current[2]_i_4 
@@ -2856,15 +2832,15 @@ module uart_uart_top_0_0_uart_tx
         .R(iRst));
   LUT6 #(
     .INIT(64'h0000000000A8A8A8)) 
-    \rCnt[4]_i_6 
-       (.I0(rTxStart_reg[1]),
+    \rBuffer[95]_i_3 
+       (.I0(rTxStart_reg[0]),
         .I1(\FSM_onehot_rFSM_Current_reg_n_0_[0] ),
         .I2(wTxDone),
         .I3(Q[1]),
         .I4(Q[0]),
         .I5(Q[2]),
         .O(\FSM_onehot_rFSM_reg[2] ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \rCnt_Current[0]_i_1 
@@ -2901,7 +2877,7 @@ module uart_uart_top_0_0_uart_tx
         .I4(\rBit_Current[2]_i_5_n_0 ),
         .I5(\FSM_onehot_rFSM_Current[4]_i_3_n_0 ),
         .O(\rCnt_Current[10]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
     .INIT(8'h28)) 
     \rCnt_Current[1]_i_1 
@@ -2909,7 +2885,7 @@ module uart_uart_top_0_0_uart_tx
         .I1(\rCnt_Current_reg_n_0_[0] ),
         .I2(\rCnt_Current_reg_n_0_[1] ),
         .O(\rCnt_Current[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT4 #(
     .INIT(16'h2A80)) 
     \rCnt_Current[2]_i_1 
@@ -2918,7 +2894,7 @@ module uart_uart_top_0_0_uart_tx
         .I2(\rCnt_Current_reg_n_0_[1] ),
         .I3(\rCnt_Current_reg_n_0_[2] ),
         .O(\rCnt_Current[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT5 #(
     .INIT(32'h2AAA8000)) 
     \rCnt_Current[3]_i_1 
@@ -2948,14 +2924,14 @@ module uart_uart_top_0_0_uart_tx
         .I4(\rCnt_Current_reg_n_0_[4] ),
         .I5(\rCnt_Current_reg_n_0_[5] ),
         .O(\rCnt_Current[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \rCnt_Current[5]_i_2 
        (.I0(\rCnt_Current_reg_n_0_[1] ),
         .I1(\rCnt_Current_reg_n_0_[0] ),
         .O(\rCnt_Current[5]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'h82)) 
     \rCnt_Current[6]_i_1 
@@ -2963,7 +2939,7 @@ module uart_uart_top_0_0_uart_tx
         .I1(\rCnt_Current[9]_i_2_n_0 ),
         .I2(\rCnt_Current_reg_n_0_[6] ),
         .O(\rCnt_Current[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT4 #(
     .INIT(16'hD020)) 
     \rCnt_Current[7]_i_1 
@@ -2972,7 +2948,7 @@ module uart_uart_top_0_0_uart_tx
         .I2(\rCnt_Current[10]_i_3_n_0 ),
         .I3(\rCnt_Current_reg_n_0_[7] ),
         .O(\rCnt_Current[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT5 #(
     .INIT(32'hBF004000)) 
     \rCnt_Current[8]_i_1 
@@ -3225,7 +3201,7 @@ module uart_uart_top_0_0_uart_tx
        (.I0(\FSM_onehot_rFSM_Current_reg_n_0_[0] ),
         .I1(\rTxData_Current_reg[7]_0 [7]),
         .O(\rTxData_Current[7]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h2AAA)) 
     \rTxData_Current[7]_i_3 
@@ -3282,14 +3258,14 @@ module uart_uart_top_0_0_uart_tx
         .D(\rTxData_Current[7]_i_2_n_0 ),
         .Q(in7[6]),
         .R(iRst));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT5 #(
     .INIT(32'hAACFAA00)) 
     rTxStart_i_1
        (.I0(p_1_in),
         .I1(wTxDone),
-        .I2(rTxStart_reg[2]),
-        .I3(rTxStart_reg[1]),
+        .I2(rTxStart_reg[1]),
+        .I3(rTxStart_reg[0]),
         .I4(rTxStart_reg_0),
         .O(\FSM_onehot_rFSM_Current_reg[4]_1 ));
 endmodule

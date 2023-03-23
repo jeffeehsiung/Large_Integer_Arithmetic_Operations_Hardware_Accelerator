@@ -11,6 +11,6 @@ May 27 2020
 /media/jeffee/T7/vivado/UART/UART.srcs/sim_1/new/uart_tx_TB.v,1679087433,verilog,,,,uart_tx_TB,,,,,,,,
 /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/hdl/uart_wrapper.v,1679322509,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sim_1/new/uart_top_TB.v,,uart_wrapper,,,,,,,,
 /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/Debounce_Switch.v,1678090116,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/hdl/uart_wrapper.v,,Debounce_Switch,,,,,,,,
-/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_rx.v,1679310373,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_tx.v,,uart_rx,,,,,,,,
+/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_rx.v,1679425272,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_tx.v,,uart_rx,,,,,,,,
 /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_top.v,1679421109,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/Debounce_Switch.v,,uart_top,,,,,,,,
 /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_tx.v,1679085800,verilog,,/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/new/uart_top.v,,uart_tx,,,,,,,,

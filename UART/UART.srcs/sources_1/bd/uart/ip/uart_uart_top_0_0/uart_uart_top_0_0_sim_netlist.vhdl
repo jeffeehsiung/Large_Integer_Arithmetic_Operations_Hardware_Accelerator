@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Mon Mar 20 07:29:24 2023
--- Host        : ubuntu running 64-bit unknown
+-- Date        : Thu Mar 23 10:35:42 2023
+-- Host        : ubuntu running 64-bit Ubuntu 18.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/ip/uart_uart_top_0_0/uart_uart_top_0_0_sim_netlist.vhdl
 -- Design      : uart_uart_top_0_0
@@ -24,14 +24,14 @@ entity uart_uart_top_0_0_uart_rx is
     iRst : in STD_LOGIC;
     iRx : in STD_LOGIC;
     iClk : in STD_LOGIC;
-    p_1_in : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    \rCnt_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    Q : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    \FSM_onehot_rFSM_reg[0]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    \rBuffer_reg[0]\ : in STD_LOGIC;
+    \rCnt_reg[4]\ : in STD_LOGIC;
     \rCnt_reg[4]_0\ : in STD_LOGIC;
-    \rCnt_reg[4]_1\ : in STD_LOGIC;
-    \rCnt_reg[4]_2\ : in STD_LOGIC;
     \rCnt_reg[0]\ : in STD_LOGIC;
-    \FSM_onehot_rFSM_reg[0]\ : in STD_LOGIC
+    \rCnt_reg[0]_0\ : in STD_LOGIC;
+    \FSM_onehot_rFSM_reg[0]_0\ : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of uart_uart_top_0_0_uart_rx : entity is "uart_rx";
@@ -44,8 +44,7 @@ architecture STRUCTURE of uart_uart_top_0_0_uart_rx is
   signal \rBit_Current_reg_n_0_[1]\ : STD_LOGIC;
   signal \rBit_Current_reg_n_0_[2]\ : STD_LOGIC;
   signal \rBit_Current_reg_n_0_[3]\ : STD_LOGIC;
-  signal \rBuffer[95]_i_3_n_0\ : STD_LOGIC;
-  signal \rCnt[4]_i_3_n_0\ : STD_LOGIC;
+  signal \rCnt[4]_i_4_n_0\ : STD_LOGIC;
   signal rCnt_Current : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \rCnt_Current[0]_i_1__0_n_0\ : STD_LOGIC;
   signal \rCnt_Current[10]_i_1__0_n_0\ : STD_LOGIC;
@@ -64,8 +63,6 @@ architecture STRUCTURE of uart_uart_top_0_0_uart_rx is
   signal \rFSM_Current[0]_i_3_n_0\ : STD_LOGIC;
   signal \rFSM_Current[0]_i_4_n_0\ : STD_LOGIC;
   signal \rFSM_Current[0]_i_5_n_0\ : STD_LOGIC;
-  signal \rFSM_Current[1]_i_2_n_0\ : STD_LOGIC;
-  signal \rFSM_Current[1]_i_3_n_0\ : STD_LOGIC;
   signal \rFSM_Current[2]_i_2_n_0\ : STD_LOGIC;
   signal \rFSM_Current[2]_i_3_n_0\ : STD_LOGIC;
   signal \rFSM_Current[2]_i_4_n_0\ : STD_LOGIC;
@@ -102,33 +99,29 @@ architecture STRUCTURE of uart_uart_top_0_0_uart_rx is
   signal \NLW_wCnt_Next0_carry__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_wCnt_Next0_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_onehot_rFSM[3]_i_3\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \rBit_Current[0]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \rBit_Current[3]_i_3\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \rBuffer[0]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \rBuffer[1]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \rBuffer[2]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \rBuffer[3]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \rBuffer[4]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \rBuffer[5]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \rBuffer[6]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \rBuffer[7]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \rBuffer[95]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \FSM_onehot_rFSM[3]_i_3\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \rBit_Current[0]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \rBit_Current[3]_i_3\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \rBuffer[0]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \rBuffer[1]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \rBuffer[2]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \rBuffer[3]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \rBuffer[4]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \rBuffer[5]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \rBuffer[6]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \rBuffer[7]_i_1\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \rCnt[1]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \rCnt[2]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \rCnt[4]_i_1\ : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of \rFSM_Current[0]_i_2\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \rFSM_Current[0]_i_3\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \rFSM_Current[0]_i_4\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \rFSM_Current[1]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \rFSM_Current[2]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \rFSM_Current[1]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \rFSM_Current[2]_i_1\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \rRxData_Current[0]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \rRxData_Current[1]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \rRxData_Current[2]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \rRxData_Current[3]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \rRxData_Current[4]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \rRxData_Current[5]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \rRxData_Current[6]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \rRxData_Current[1]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \rRxData_Current[2]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \rRxData_Current[3]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \rRxData_Current[4]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \rRxData_Current[5]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \rRxData_Current[6]_i_1\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \rRxData_Current[7]_i_2\ : label is "soft_lutpair3";
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of wCnt_Next0_carry : label is 35;
@@ -140,12 +133,12 @@ begin
       INIT => X"FFFFFFFFFFFFFFF2"
     )
         port map (
-      I0 => Q(1),
+      I0 => \FSM_onehot_rFSM_reg[0]\(1),
       I1 => wRxDone,
-      I2 => \FSM_onehot_rFSM_reg[0]\,
-      I3 => Q(3),
-      I4 => Q(0),
-      I5 => Q(2),
+      I2 => \FSM_onehot_rFSM_reg[0]\(2),
+      I3 => \FSM_onehot_rFSM_reg[0]\(0),
+      I4 => \FSM_onehot_rFSM_reg[0]\(3),
+      I5 => \FSM_onehot_rFSM_reg[0]_0\,
       O => \FSM_onehot_rFSM_reg[1]\(0)
     );
 \FSM_onehot_rFSM[3]_i_3\: unisim.vcomponents.LUT3
@@ -203,7 +196,7 @@ begin
       I0 => rFSM_Current(0),
       I1 => rFSM_Current(2),
       I2 => rFSM_Current(1),
-      I3 => \rFSM_Current[2]_i_2_n_0\,
+      I3 => \rFSM_Current[0]_i_4_n_0\,
       O => \rBit_Current[3]_i_1_n_0\
     );
 \rBit_Current[3]_i_2\: unisim.vcomponents.LUT6
@@ -265,7 +258,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => Q(1),
+      I0 => \FSM_onehot_rFSM_reg[0]\(1),
       I1 => rRxData_Current(0),
       O => \FSM_onehot_rFSM_reg[1]_0\(0)
     );
@@ -274,7 +267,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => Q(1),
+      I0 => \FSM_onehot_rFSM_reg[0]\(1),
       I1 => rRxData_Current(1),
       O => \FSM_onehot_rFSM_reg[1]_0\(1)
     );
@@ -283,7 +276,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => Q(1),
+      I0 => \FSM_onehot_rFSM_reg[0]\(1),
       I1 => rRxData_Current(2),
       O => \FSM_onehot_rFSM_reg[1]_0\(2)
     );
@@ -292,7 +285,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => Q(1),
+      I0 => \FSM_onehot_rFSM_reg[0]\(1),
       I1 => rRxData_Current(3),
       O => \FSM_onehot_rFSM_reg[1]_0\(3)
     );
@@ -301,7 +294,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => Q(1),
+      I0 => \FSM_onehot_rFSM_reg[0]\(1),
       I1 => rRxData_Current(4),
       O => \FSM_onehot_rFSM_reg[1]_0\(4)
     );
@@ -310,7 +303,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => Q(1),
+      I0 => \FSM_onehot_rFSM_reg[0]\(1),
       I1 => rRxData_Current(5),
       O => \FSM_onehot_rFSM_reg[1]_0\(5)
     );
@@ -319,7 +312,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => Q(1),
+      I0 => \FSM_onehot_rFSM_reg[0]\(1),
       I1 => rRxData_Current(6),
       O => \FSM_onehot_rFSM_reg[1]_0\(6)
     );
@@ -328,41 +321,31 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => Q(1),
+      I0 => \FSM_onehot_rFSM_reg[0]\(1),
       I1 => rRxData_Current(7),
       O => \FSM_onehot_rFSM_reg[1]_0\(7)
     );
-\rBuffer[95]_i_1\: unisim.vcomponents.LUT3
+\rBuffer[95]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"EA"
+      INIT => X"FFFFFFFF00202020"
     )
         port map (
-      I0 => \rBuffer[95]_i_3_n_0\,
-      I1 => p_1_in,
-      I2 => Q(2),
+      I0 => wRxDone,
+      I1 => Q(4),
+      I2 => \FSM_onehot_rFSM_reg[0]\(1),
+      I3 => Q(3),
+      I4 => Q(2),
+      I5 => \rBuffer_reg[0]\,
       O => E(0)
-    );
-\rBuffer[95]_i_3\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"4040404400000004"
-    )
-        port map (
-      I0 => \rCnt_reg[4]\(4),
-      I1 => Q(1),
-      I2 => \rCnt_reg[0]\,
-      I3 => \rCnt_reg[4]\(1),
-      I4 => \rCnt_reg[4]\(0),
-      I5 => wRxDone,
-      O => \rBuffer[95]_i_3_n_0\
     );
 \rCnt[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"F4"
     )
         port map (
-      I0 => \rCnt_reg[4]\(0),
-      I1 => \rCnt[4]_i_3_n_0\,
-      I2 => Q(0),
+      I0 => Q(0),
+      I1 => \rCnt[4]_i_4_n_0\,
+      I2 => \FSM_onehot_rFSM_reg[0]\(0),
       O => D(0)
     );
 \rCnt[1]_i_1\: unisim.vcomponents.LUT4
@@ -370,10 +353,10 @@ begin
       INIT => X"AEEA"
     )
         port map (
-      I0 => Q(0),
-      I1 => \rCnt[4]_i_3_n_0\,
-      I2 => \rCnt_reg[4]\(1),
-      I3 => \rCnt_reg[4]\(0),
+      I0 => \FSM_onehot_rFSM_reg[0]\(0),
+      I1 => \rCnt[4]_i_4_n_0\,
+      I2 => Q(1),
+      I3 => Q(0),
       O => D(1)
     );
 \rCnt[2]_i_1\: unisim.vcomponents.LUT5
@@ -381,11 +364,11 @@ begin
       INIT => X"AEEEEAAA"
     )
         port map (
-      I0 => Q(0),
-      I1 => \rCnt[4]_i_3_n_0\,
-      I2 => \rCnt_reg[4]\(0),
-      I3 => \rCnt_reg[4]\(1),
-      I4 => \rCnt_reg[4]\(2),
+      I0 => \FSM_onehot_rFSM_reg[0]\(0),
+      I1 => \rCnt[4]_i_4_n_0\,
+      I2 => Q(0),
+      I3 => Q(1),
+      I4 => Q(2),
       O => D(2)
     );
 \rCnt[3]_i_1\: unisim.vcomponents.LUT6
@@ -393,21 +376,25 @@ begin
       INIT => X"AEEAEAEAEAEAEAEA"
     )
         port map (
-      I0 => Q(0),
-      I1 => \rCnt[4]_i_3_n_0\,
-      I2 => \rCnt_reg[4]\(3),
-      I3 => \rCnt_reg[4]\(1),
-      I4 => \rCnt_reg[4]\(0),
-      I5 => \rCnt_reg[4]\(2),
+      I0 => \FSM_onehot_rFSM_reg[0]\(0),
+      I1 => \rCnt[4]_i_4_n_0\,
+      I2 => Q(3),
+      I3 => Q(1),
+      I4 => Q(0),
+      I5 => Q(2),
       O => D(3)
     );
-\rCnt[4]_i_1\: unisim.vcomponents.LUT2
+\rCnt[4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E"
+      INIT => X"EEEEAAAFAAAAAAAA"
     )
         port map (
-      I0 => \rBuffer[95]_i_3_n_0\,
-      I1 => Q(2),
+      I0 => \FSM_onehot_rFSM_reg[0]\(2),
+      I1 => wRxDone,
+      I2 => Q(0),
+      I3 => Q(1),
+      I4 => \rCnt_reg[0]\,
+      I5 => \rCnt_reg[0]_0\,
       O => \FSM_onehot_rFSM_reg[2]\(0)
     );
 \rCnt[4]_i_2\: unisim.vcomponents.LUT5
@@ -415,25 +402,25 @@ begin
       INIT => X"AEEEEAAA"
     )
         port map (
-      I0 => Q(0),
-      I1 => \rCnt[4]_i_3_n_0\,
-      I2 => \rCnt_reg[4]\(3),
-      I3 => \rCnt_reg[4]_0\,
-      I4 => \rCnt_reg[4]\(4),
+      I0 => \FSM_onehot_rFSM_reg[0]\(0),
+      I1 => \rCnt[4]_i_4_n_0\,
+      I2 => Q(3),
+      I3 => \rCnt_reg[4]\,
+      I4 => Q(4),
       O => D(4)
     );
-\rCnt[4]_i_3\: unisim.vcomponents.LUT6
+\rCnt[4]_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FFFFFFFF02000000"
     )
         port map (
-      I0 => \rCnt_reg[4]_1\,
+      I0 => \rCnt_reg[4]_0\,
       I1 => rFSM_Current(0),
       I2 => rFSM_Current(1),
       I3 => rFSM_Current(2),
-      I4 => Q(1),
-      I5 => \rCnt_reg[4]_2\,
-      O => \rCnt[4]_i_3_n_0\
+      I4 => \FSM_onehot_rFSM_reg[0]\(1),
+      I5 => \rBuffer_reg[0]\,
+      O => \rCnt[4]_i_4_n_0\
     );
 \rCnt_Current[0]_i_1__0\: unisim.vcomponents.LUT6
     generic map(
@@ -441,9 +428,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => rCnt_Current(0),
       O => \rCnt_Current[0]_i_1__0_n_0\
@@ -454,9 +441,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => \wCnt_Next0_carry__1_n_6\,
       O => \rCnt_Current[10]_i_1__0_n_0\
@@ -467,9 +454,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => \wCnt_Next0_carry__1_n_5\,
       O => \rCnt_Current[11]_i_1_n_0\
@@ -480,9 +467,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => wCnt_Next0_carry_n_7,
       O => \rCnt_Current[1]_i_1__0_n_0\
@@ -493,9 +480,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => wCnt_Next0_carry_n_6,
       O => \rCnt_Current[2]_i_1__0_n_0\
@@ -506,9 +493,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => wCnt_Next0_carry_n_5,
       O => \rCnt_Current[3]_i_1__0_n_0\
@@ -519,9 +506,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => wCnt_Next0_carry_n_4,
       O => \rCnt_Current[4]_i_1__0_n_0\
@@ -532,9 +519,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => \wCnt_Next0_carry__0_n_7\,
       O => \rCnt_Current[5]_i_1__0_n_0\
@@ -545,9 +532,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => \wCnt_Next0_carry__0_n_6\,
       O => \rCnt_Current[6]_i_1__0_n_0\
@@ -558,9 +545,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => \wCnt_Next0_carry__0_n_5\,
       O => \rCnt_Current[7]_i_1__0_n_0\
@@ -571,9 +558,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => \wCnt_Next0_carry__0_n_4\,
       O => \rCnt_Current[8]_i_1__0_n_0\
@@ -584,9 +571,9 @@ begin
     )
         port map (
       I0 => rFSM_Current(2),
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(0),
-      I3 => rFSM_Current(1),
+      I1 => \rFSM_Current[0]_i_4_n_0\,
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(0),
       I4 => \rFSM_Current[2]_i_2_n_0\,
       I5 => \wCnt_Next0_carry__1_n_7\,
       O => \rCnt_Current[9]_i_1__0_n_0\
@@ -689,49 +676,29 @@ begin
     );
 \rFSM_Current[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFF8FFF8FFFFFF88"
+      INIT => X"AEAEAEAEFFAEAEAE"
     )
         port map (
       I0 => \rFSM_Current[0]_i_2_n_0\,
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => \rFSM_Current[0]_i_3_n_0\,
-      I3 => \rFSM_Current[0]_i_4_n_0\,
-      I4 => \rFSM_Current[0]_i_5_n_0\,
-      I5 => \rFSM_Current[2]_i_2_n_0\,
+      I1 => \rFSM_Current[0]_i_3_n_0\,
+      I2 => \rFSM_Current[0]_i_4_n_0\,
+      I3 => \rFSM_Current[2]_i_2_n_0\,
+      I4 => rFSM_Current(0),
+      I5 => rFSM_Current(2),
       O => wFSM_Next(0)
     );
-\rFSM_Current[0]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"10"
-    )
-        port map (
-      I0 => rFSM_Current(1),
-      I1 => rFSM_Current(2),
-      I2 => rFSM_Current(0),
-      O => \rFSM_Current[0]_i_2_n_0\
-    );
-\rFSM_Current[0]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"08"
-    )
-        port map (
-      I0 => rFSM_Current(0),
-      I1 => rFSM_Current(1),
-      I2 => rFSM_Current(2),
-      O => \rFSM_Current[0]_i_3_n_0\
-    );
-\rFSM_Current[0]_i_4\: unisim.vcomponents.LUT4
+\rFSM_Current[0]_i_2\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"0001"
     )
         port map (
       I0 => iRx,
-      I1 => rFSM_Current(0),
+      I1 => rFSM_Current(2),
       I2 => rFSM_Current(1),
-      I3 => rFSM_Current(2),
-      O => \rFSM_Current[0]_i_4_n_0\
+      I3 => rFSM_Current(0),
+      O => \rFSM_Current[0]_i_2_n_0\
     );
-\rFSM_Current[0]_i_5\: unisim.vcomponents.LUT6
+\rFSM_Current[0]_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"000000000000AAA8"
     )
@@ -742,43 +709,42 @@ begin
       I3 => \rBit_Current_reg_n_0_[0]\,
       I4 => rFSM_Current(0),
       I5 => \rBit_Current[3]_i_3_n_0\,
-      O => \rFSM_Current[0]_i_5_n_0\
+      O => \rFSM_Current[0]_i_3_n_0\
     );
-\rFSM_Current[1]_i_1\: unisim.vcomponents.LUT5
+\rFSM_Current[0]_i_4\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"00A300F0"
+      INIT => X"B0B0B0FF"
     )
         port map (
-      I0 => \rFSM_Current[2]_i_2_n_0\,
-      I1 => \rFSM_Current[1]_i_2_n_0\,
-      I2 => rFSM_Current(1),
-      I3 => rFSM_Current(2),
-      I4 => rFSM_Current(0),
-      O => wFSM_Next(1)
+      I0 => \rFSM_Current[2]_i_4_n_0\,
+      I1 => rCnt_Current(5),
+      I2 => \rFSM_Current[0]_i_5_n_0\,
+      I3 => rCnt_Current(10),
+      I4 => rCnt_Current(11),
+      O => \rFSM_Current[0]_i_4_n_0\
     );
-\rFSM_Current[1]_i_2\: unisim.vcomponents.LUT6
+\rFSM_Current[0]_i_5\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"1101110101011101"
+      INIT => X"00000001"
     )
         port map (
       I0 => rCnt_Current(11),
-      I1 => rCnt_Current(10),
-      I2 => rCnt_Current(9),
-      I3 => \rFSM_Current[1]_i_3_n_0\,
-      I4 => rCnt_Current(1),
-      I5 => \rFSM_Current[2]_i_3_n_0\,
-      O => \rFSM_Current[1]_i_2_n_0\
+      I1 => rCnt_Current(6),
+      I2 => rCnt_Current(7),
+      I3 => rCnt_Current(9),
+      I4 => rCnt_Current(8),
+      O => \rFSM_Current[0]_i_5_n_0\
     );
-\rFSM_Current[1]_i_3\: unisim.vcomponents.LUT4
+\rFSM_Current[1]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0001"
+      INIT => X"3012"
     )
         port map (
-      I0 => rCnt_Current(6),
-      I1 => rCnt_Current(5),
-      I2 => rCnt_Current(8),
-      I3 => rCnt_Current(7),
-      O => \rFSM_Current[1]_i_3_n_0\
+      I0 => rFSM_Current(0),
+      I1 => rFSM_Current(2),
+      I2 => rFSM_Current(1),
+      I3 => \rFSM_Current[2]_i_2_n_0\,
+      O => wFSM_Next(1)
     );
 \rFSM_Current[2]_i_1\: unisim.vcomponents.LUT4
     generic map(
@@ -791,19 +757,31 @@ begin
       I3 => \rFSM_Current[2]_i_2_n_0\,
       O => wFSM_Next(2)
     );
-\rFSM_Current[2]_i_2\: unisim.vcomponents.LUT5
+\rFSM_Current[2]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"B0B0B0FF"
+      INIT => X"1101110101011101"
     )
         port map (
-      I0 => \rFSM_Current[2]_i_3_n_0\,
-      I1 => rCnt_Current(5),
-      I2 => \rFSM_Current[2]_i_4_n_0\,
-      I3 => rCnt_Current(10),
-      I4 => rCnt_Current(11),
+      I0 => rCnt_Current(11),
+      I1 => rCnt_Current(10),
+      I2 => rCnt_Current(9),
+      I3 => \rFSM_Current[2]_i_3_n_0\,
+      I4 => rCnt_Current(1),
+      I5 => \rFSM_Current[2]_i_4_n_0\,
       O => \rFSM_Current[2]_i_2_n_0\
     );
-\rFSM_Current[2]_i_3\: unisim.vcomponents.LUT3
+\rFSM_Current[2]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0001"
+    )
+        port map (
+      I0 => rCnt_Current(6),
+      I1 => rCnt_Current(5),
+      I2 => rCnt_Current(8),
+      I3 => rCnt_Current(7),
+      O => \rFSM_Current[2]_i_3_n_0\
+    );
+\rFSM_Current[2]_i_4\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"7F"
     )
@@ -811,18 +789,6 @@ begin
       I0 => rCnt_Current(3),
       I1 => rCnt_Current(2),
       I2 => rCnt_Current(4),
-      O => \rFSM_Current[2]_i_3_n_0\
-    );
-\rFSM_Current[2]_i_4\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"00000001"
-    )
-        port map (
-      I0 => rCnt_Current(11),
-      I1 => rCnt_Current(6),
-      I2 => rCnt_Current(7),
-      I3 => rCnt_Current(9),
-      I4 => rCnt_Current(8),
       O => \rFSM_Current[2]_i_4_n_0\
     );
 \rFSM_Current_reg[0]\: unisim.vcomponents.FDRE
@@ -867,13 +833,13 @@ rRx2_reg: unisim.vcomponents.FDRE
     );
 \rRxData_Current[0]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0A0C"
+      INIT => X"00AC"
     )
         port map (
       I0 => rRxData_Current(1),
       I1 => rRx2,
-      I2 => rFSM_Current(2),
-      I3 => rFSM_Current(1),
+      I2 => rFSM_Current(1),
+      I3 => rFSM_Current(2),
       O => wRxData_Next(0)
     );
 \rRxData_Current[1]_i_1\: unisim.vcomponents.LUT3
@@ -943,7 +909,7 @@ rRx2_reg: unisim.vcomponents.FDRE
         port map (
       I0 => iRx,
       I1 => rFSM_Current(2),
-      I2 => \rFSM_Current[2]_i_2_n_0\,
+      I2 => \rFSM_Current[0]_i_4_n_0\,
       I3 => rFSM_Current(0),
       I4 => rFSM_Current(1),
       I5 => \rRxData_Current[7]_i_3_n_0\,
@@ -1088,13 +1054,12 @@ entity uart_uart_top_0_0_uart_tx is
   port (
     D : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \FSM_onehot_rFSM_Current_reg[4]_0\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    p_1_in : out STD_LOGIC;
     \FSM_onehot_rFSM_reg[2]\ : out STD_LOGIC;
     oTx : out STD_LOGIC;
     \FSM_onehot_rFSM_Current_reg[4]_1\ : out STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \rTxByte_reg[7]\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    rTxStart_reg : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    rTxStart_reg : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \FSM_onehot_rFSM_reg[2]_0\ : in STD_LOGIC;
     rTxStart_reg_0 : in STD_LOGIC;
     \rTxData_Current_reg[7]_0\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -1118,7 +1083,7 @@ architecture STRUCTURE of uart_uart_top_0_0_uart_tx is
   signal \FSM_onehot_rFSM_Current_reg_n_0_[2]\ : STD_LOGIC;
   signal \FSM_onehot_rFSM_Current_reg_n_0_[3]\ : STD_LOGIC;
   signal in7 : STD_LOGIC_VECTOR ( 6 downto 0 );
-  signal \^p_1_in\ : STD_LOGIC;
+  signal p_1_in : STD_LOGIC;
   signal rBit_Current : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \rBit_Current[0]_i_1_n_0\ : STD_LOGIC;
   signal \rBit_Current[1]_i_1_n_0\ : STD_LOGIC;
@@ -1166,40 +1131,39 @@ architecture STRUCTURE of uart_uart_top_0_0_uart_tx is
   signal wTxData_Next : STD_LOGIC;
   signal wTxDone : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_onehot_rFSM[3]_i_2\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \FSM_onehot_rFSM_Current[0]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \FSM_onehot_rFSM_Current[1]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \FSM_onehot_rFSM_Current[4]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \FSM_onehot_rFSM_Current[4]_i_3\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \FSM_onehot_rFSM[3]_i_2\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \FSM_onehot_rFSM_Current[0]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \FSM_onehot_rFSM_Current[1]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \FSM_onehot_rFSM_Current[4]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \FSM_onehot_rFSM_Current[4]_i_3\ : label is "soft_lutpair18";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_onehot_rFSM_Current_reg[0]\ : label is "sIDLE:00001,sTX_START:00010,sTX_DATA:00100,sDONE:10000,sTX_STOP:01000";
   attribute FSM_ENCODED_STATES of \FSM_onehot_rFSM_Current_reg[1]\ : label is "sIDLE:00001,sTX_START:00010,sTX_DATA:00100,sDONE:10000,sTX_STOP:01000";
   attribute FSM_ENCODED_STATES of \FSM_onehot_rFSM_Current_reg[2]\ : label is "sIDLE:00001,sTX_START:00010,sTX_DATA:00100,sDONE:10000,sTX_STOP:01000";
   attribute FSM_ENCODED_STATES of \FSM_onehot_rFSM_Current_reg[3]\ : label is "sIDLE:00001,sTX_START:00010,sTX_DATA:00100,sDONE:10000,sTX_STOP:01000";
   attribute FSM_ENCODED_STATES of \FSM_onehot_rFSM_Current_reg[4]\ : label is "sIDLE:00001,sTX_START:00010,sTX_DATA:00100,sDONE:10000,sTX_STOP:01000";
-  attribute SOFT_HLUTNM of \rBit_Current[0]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \rBit_Current[1]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \rBit_Current[2]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \rBit_Current[2]_i_3\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \rBit_Current[2]_i_4\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \rCnt_Current[0]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \rCnt_Current[1]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \rCnt_Current[2]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \rCnt_Current[3]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \rCnt_Current[5]_i_2\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \rCnt_Current[6]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \rCnt_Current[7]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \rCnt_Current[8]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \rTxData_Current[7]_i_3\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of rTxStart_i_1 : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \rBit_Current[0]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \rBit_Current[1]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \rBit_Current[2]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \rBit_Current[2]_i_3\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \rBit_Current[2]_i_4\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \rCnt_Current[0]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \rCnt_Current[1]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \rCnt_Current[2]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \rCnt_Current[3]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \rCnt_Current[5]_i_2\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \rCnt_Current[6]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \rCnt_Current[7]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \rCnt_Current[8]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \rTxData_Current[7]_i_3\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of rTxStart_i_1 : label is "soft_lutpair14";
 begin
-  p_1_in <= \^p_1_in\;
 \FSM_onehot_rFSM[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AAAAAAAAAA020202"
     )
         port map (
-      I0 => rTxStart_reg(1),
+      I0 => rTxStart_reg(0),
       I1 => \FSM_onehot_rFSM_Current_reg_n_0_[0]\,
       I2 => wTxDone,
       I3 => Q(1),
@@ -1207,16 +1171,14 @@ begin
       I5 => Q(2),
       O => \FSM_onehot_rFSM_Current_reg[4]_0\(0)
     );
-\FSM_onehot_rFSM[2]_i_1\: unisim.vcomponents.LUT5
+\FSM_onehot_rFSM[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"FF202020"
+      INIT => X"EA"
     )
         port map (
-      I0 => rTxStart_reg(0),
-      I1 => Q(2),
-      I2 => \FSM_onehot_rFSM_reg[2]_0\,
-      I3 => wTxDone,
-      I4 => rTxStart_reg(2),
+      I0 => \FSM_onehot_rFSM_reg[2]_0\,
+      I1 => wTxDone,
+      I2 => rTxStart_reg(1),
       O => \FSM_onehot_rFSM_Current_reg[4]_0\(1)
     );
 \FSM_onehot_rFSM[3]_i_2\: unisim.vcomponents.LUT4
@@ -1225,9 +1187,9 @@ begin
     )
         port map (
       I0 => wTxDone,
-      I1 => rTxStart_reg(2),
-      I2 => \^p_1_in\,
-      I3 => rTxStart_reg(1),
+      I1 => rTxStart_reg(1),
+      I2 => p_1_in,
+      I3 => rTxStart_reg(0),
       O => \FSM_onehot_rFSM_Current_reg[4]_0\(2)
     );
 \FSM_onehot_rFSM[3]_i_5\: unisim.vcomponents.LUT5
@@ -1240,7 +1202,7 @@ begin
       I2 => Q(1),
       I3 => wTxDone,
       I4 => \FSM_onehot_rFSM_Current_reg_n_0_[0]\,
-      O => \^p_1_in\
+      O => p_1_in
     );
 \FSM_onehot_rFSM_Current[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -1489,12 +1451,12 @@ oTx_INST_0: unisim.vcomponents.LUT3
       Q => rBit_Current(2),
       R => iRst
     );
-\rCnt[4]_i_6\: unisim.vcomponents.LUT6
+\rBuffer[95]_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0000000000A8A8A8"
     )
         port map (
-      I0 => rTxStart_reg(1),
+      I0 => rTxStart_reg(0),
       I1 => \FSM_onehot_rFSM_Current_reg_n_0_[0]\,
       I2 => wTxDone,
       I3 => Q(1),
@@ -2053,10 +2015,10 @@ rTxStart_i_1: unisim.vcomponents.LUT5
       INIT => X"AACFAA00"
     )
         port map (
-      I0 => \^p_1_in\,
+      I0 => p_1_in,
       I1 => wTxDone,
-      I2 => rTxStart_reg(2),
-      I3 => rTxStart_reg(1),
+      I2 => rTxStart_reg(1),
+      I3 => rTxStart_reg(0),
       I4 => rTxStart_reg_0,
       O => \FSM_onehot_rFSM_Current_reg[4]_1\
     );
@@ -2101,8 +2063,8 @@ architecture STRUCTURE of uart_uart_top_0_0_uart_top is
   signal UART_TX_INST_n_0 : STD_LOGIC;
   signal UART_TX_INST_n_1 : STD_LOGIC;
   signal UART_TX_INST_n_10 : STD_LOGIC;
-  signal UART_TX_INST_n_12 : STD_LOGIC;
-  signal UART_TX_INST_n_14 : STD_LOGIC;
+  signal UART_TX_INST_n_11 : STD_LOGIC;
+  signal UART_TX_INST_n_13 : STD_LOGIC;
   signal UART_TX_INST_n_2 : STD_LOGIC;
   signal UART_TX_INST_n_3 : STD_LOGIC;
   signal UART_TX_INST_n_4 : STD_LOGIC;
@@ -2112,7 +2074,6 @@ architecture STRUCTURE of uart_uart_top_0_0_uart_top is
   signal UART_TX_INST_n_8 : STD_LOGIC;
   signal UART_TX_INST_n_9 : STD_LOGIC;
   signal in8 : STD_LOGIC_VECTOR ( 95 downto 8 );
-  signal p_1_in : STD_LOGIC;
   signal rBuffer : STD_LOGIC;
   signal \rBuffer[10]_i_1_n_0\ : STD_LOGIC;
   signal \rBuffer[11]_i_1_n_0\ : STD_LOGIC;
@@ -2211,8 +2172,9 @@ architecture STRUCTURE of uart_uart_top_0_0_uart_top is
   signal \rBuffer_reg_n_0_[94]\ : STD_LOGIC;
   signal \rBuffer_reg_n_0_[95]\ : STD_LOGIC;
   signal rCnt : STD_LOGIC;
-  signal \rCnt[4]_i_4_n_0\ : STD_LOGIC;
+  signal \rCnt[4]_i_3_n_0\ : STD_LOGIC;
   signal \rCnt[4]_i_5_n_0\ : STD_LOGIC;
+  signal \rCnt[4]_i_6_n_0\ : STD_LOGIC;
   signal \rCnt_reg_n_0_[0]\ : STD_LOGIC;
   signal \rCnt_reg_n_0_[1]\ : STD_LOGIC;
   signal \rCnt_reg_n_0_[2]\ : STD_LOGIC;
@@ -2221,104 +2183,102 @@ architecture STRUCTURE of uart_uart_top_0_0_uart_top is
   signal rTxByte : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal rTxByte_0 : STD_LOGIC;
   signal rTxStart_reg_n_0 : STD_LOGIC;
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_onehot_rFSM[1]_i_2\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \FSM_onehot_rFSM[2]_i_2\ : label is "soft_lutpair24";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_onehot_rFSM_reg[0]\ : label is "s_DONE:100,s_WAIT_RX:0010,s_IDLE:0001,s_WAIT_TX:1000,s_TX:0100";
   attribute FSM_ENCODED_STATES of \FSM_onehot_rFSM_reg[1]\ : label is "s_DONE:100,s_WAIT_RX:0010,s_IDLE:0001,s_WAIT_TX:1000,s_TX:0100";
   attribute FSM_ENCODED_STATES of \FSM_onehot_rFSM_reg[2]\ : label is "s_DONE:100,s_WAIT_RX:0010,s_IDLE:0001,s_WAIT_TX:1000,s_TX:0100";
   attribute FSM_ENCODED_STATES of \FSM_onehot_rFSM_reg[3]\ : label is "s_DONE:100,s_WAIT_RX:0010,s_IDLE:0001,s_WAIT_TX:1000,s_TX:0100";
-  attribute SOFT_HLUTNM of \rBuffer[10]_i_1\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \rBuffer[11]_i_1\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \rBuffer[12]_i_1\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \rBuffer[13]_i_1\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \rBuffer[14]_i_1\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \rBuffer[15]_i_1\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \rBuffer[16]_i_1\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \rBuffer[17]_i_1\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \rBuffer[18]_i_1\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \rBuffer[19]_i_1\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \rBuffer[20]_i_1\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \rBuffer[21]_i_1\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \rBuffer[22]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \rBuffer[23]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \rBuffer[24]_i_1\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \rBuffer[25]_i_1\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \rBuffer[26]_i_1\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \rBuffer[27]_i_1\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \rBuffer[28]_i_1\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \rBuffer[29]_i_1\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \rBuffer[30]_i_1\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \rBuffer[31]_i_1\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \rBuffer[32]_i_1\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \rBuffer[33]_i_1\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \rBuffer[34]_i_1\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \rBuffer[35]_i_1\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \rBuffer[36]_i_1\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \rBuffer[37]_i_1\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \rBuffer[38]_i_1\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \rBuffer[39]_i_1\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \rBuffer[40]_i_1\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \rBuffer[41]_i_1\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \rBuffer[42]_i_1\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \rBuffer[43]_i_1\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \rBuffer[44]_i_1\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \rBuffer[45]_i_1\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \rBuffer[46]_i_1\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \rBuffer[47]_i_1\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \rBuffer[48]_i_1\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \rBuffer[49]_i_1\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \rBuffer[50]_i_1\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \rBuffer[51]_i_1\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \rBuffer[52]_i_1\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \rBuffer[53]_i_1\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \rBuffer[54]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \rBuffer[55]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \rBuffer[56]_i_1\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \rBuffer[57]_i_1\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \rBuffer[58]_i_1\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \rBuffer[59]_i_1\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \rBuffer[60]_i_1\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \rBuffer[61]_i_1\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \rBuffer[62]_i_1\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \rBuffer[63]_i_1\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \rBuffer[64]_i_1\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \rBuffer[65]_i_1\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \rBuffer[66]_i_1\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \rBuffer[67]_i_1\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \rBuffer[68]_i_1\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \rBuffer[69]_i_1\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \rBuffer[70]_i_1\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \rBuffer[71]_i_1\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \rBuffer[72]_i_1\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \rBuffer[73]_i_1\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \rBuffer[74]_i_1\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \rBuffer[75]_i_1\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \rBuffer[76]_i_1\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \rBuffer[77]_i_1\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \rBuffer[78]_i_1\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \rBuffer[79]_i_1\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \rBuffer[80]_i_1\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \rBuffer[81]_i_1\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \rBuffer[82]_i_1\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \rBuffer[83]_i_1\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \rBuffer[84]_i_1\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \rBuffer[85]_i_1\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \rBuffer[86]_i_1\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \rBuffer[87]_i_1\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \rBuffer[88]_i_1\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \rBuffer[89]_i_1\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \rBuffer[8]_i_1\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \rBuffer[90]_i_1\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \rBuffer[91]_i_1\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \rBuffer[92]_i_1\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \rBuffer[93]_i_1\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \rBuffer[94]_i_1\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \rBuffer[95]_i_2\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \rBuffer[9]_i_1\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \rCnt[4]_i_4\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \rCnt[4]_i_5\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \rBuffer[10]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \rBuffer[11]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \rBuffer[12]_i_1\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \rBuffer[13]_i_1\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \rBuffer[14]_i_1\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \rBuffer[15]_i_1\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \rBuffer[16]_i_1\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \rBuffer[17]_i_1\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \rBuffer[18]_i_1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \rBuffer[19]_i_1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \rBuffer[20]_i_1\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \rBuffer[21]_i_1\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \rBuffer[22]_i_1\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \rBuffer[23]_i_1\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \rBuffer[24]_i_1\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \rBuffer[25]_i_1\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \rBuffer[26]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \rBuffer[27]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \rBuffer[28]_i_1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \rBuffer[29]_i_1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \rBuffer[30]_i_1\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \rBuffer[31]_i_1\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \rBuffer[32]_i_1\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \rBuffer[33]_i_1\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \rBuffer[34]_i_1\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \rBuffer[35]_i_1\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \rBuffer[36]_i_1\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \rBuffer[37]_i_1\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \rBuffer[38]_i_1\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \rBuffer[39]_i_1\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \rBuffer[40]_i_1\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \rBuffer[41]_i_1\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \rBuffer[42]_i_1\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \rBuffer[43]_i_1\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \rBuffer[44]_i_1\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \rBuffer[45]_i_1\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \rBuffer[46]_i_1\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \rBuffer[47]_i_1\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \rBuffer[48]_i_1\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \rBuffer[49]_i_1\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \rBuffer[50]_i_1\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \rBuffer[51]_i_1\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \rBuffer[52]_i_1\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \rBuffer[53]_i_1\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \rBuffer[54]_i_1\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \rBuffer[55]_i_1\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \rBuffer[56]_i_1\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \rBuffer[57]_i_1\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \rBuffer[58]_i_1\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \rBuffer[59]_i_1\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \rBuffer[60]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \rBuffer[61]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \rBuffer[62]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \rBuffer[63]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \rBuffer[64]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \rBuffer[65]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \rBuffer[66]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \rBuffer[67]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \rBuffer[68]_i_1\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \rBuffer[69]_i_1\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \rBuffer[70]_i_1\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \rBuffer[71]_i_1\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \rBuffer[72]_i_1\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \rBuffer[73]_i_1\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \rBuffer[74]_i_1\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \rBuffer[75]_i_1\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \rBuffer[76]_i_1\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \rBuffer[77]_i_1\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \rBuffer[78]_i_1\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \rBuffer[79]_i_1\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \rBuffer[80]_i_1\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \rBuffer[81]_i_1\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \rBuffer[82]_i_1\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \rBuffer[83]_i_1\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \rBuffer[84]_i_1\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \rBuffer[85]_i_1\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \rBuffer[86]_i_1\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \rBuffer[87]_i_1\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \rBuffer[88]_i_1\ : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of \rBuffer[89]_i_1\ : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of \rBuffer[8]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \rBuffer[90]_i_1\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \rBuffer[91]_i_1\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \rBuffer[92]_i_1\ : label is "soft_lutpair65";
+  attribute SOFT_HLUTNM of \rBuffer[93]_i_1\ : label is "soft_lutpair65";
+  attribute SOFT_HLUTNM of \rBuffer[94]_i_1\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \rBuffer[95]_i_2\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \rBuffer[9]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \rCnt[4]_i_5\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \rCnt[4]_i_6\ : label is "soft_lutpair22";
 begin
 \FSM_onehot_rFSM[1]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -2327,8 +2287,8 @@ begin
         port map (
       I0 => \FSM_onehot_rFSM[1]_i_2_n_0\,
       I1 => \rCnt_reg_n_0_[1]\,
-      I2 => \rCnt_reg_n_0_[4]\,
-      I3 => \rCnt_reg_n_0_[0]\,
+      I2 => \rCnt_reg_n_0_[0]\,
+      I3 => \rCnt_reg_n_0_[4]\,
       I4 => \FSM_onehot_rFSM_reg_n_0_[1]\,
       I5 => \FSM_onehot_rFSM_reg_n_0_[0]\,
       O => \FSM_onehot_rFSM[1]_i_1_n_0\
@@ -2342,20 +2302,9 @@ begin
       I1 => \rCnt_reg_n_0_[3]\,
       O => \FSM_onehot_rFSM[1]_i_2_n_0\
     );
-\FSM_onehot_rFSM[2]_i_2\: unisim.vcomponents.LUT4
+\FSM_onehot_rFSM[2]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"1000"
-    )
-        port map (
-      I0 => \rCnt_reg_n_0_[1]\,
-      I1 => \rCnt_reg_n_0_[0]\,
-      I2 => \rCnt_reg_n_0_[3]\,
-      I3 => \rCnt_reg_n_0_[2]\,
-      O => \FSM_onehot_rFSM[2]_i_2_n_0\
-    );
-\FSM_onehot_rFSM[3]_i_4\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0444044404444444"
+      INIT => X"0000000000004000"
     )
         port map (
       I0 => \rCnt_reg_n_0_[4]\,
@@ -2364,6 +2313,19 @@ begin
       I3 => \rCnt_reg_n_0_[3]\,
       I4 => \rCnt_reg_n_0_[1]\,
       I5 => \rCnt_reg_n_0_[0]\,
+      O => \FSM_onehot_rFSM[2]_i_2_n_0\
+    );
+\FSM_onehot_rFSM[3]_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000000001FFF0000"
+    )
+        port map (
+      I0 => \rCnt_reg_n_0_[1]\,
+      I1 => \rCnt_reg_n_0_[0]\,
+      I2 => \rCnt_reg_n_0_[2]\,
+      I3 => \rCnt_reg_n_0_[3]\,
+      I4 => \FSM_onehot_rFSM_reg_n_0_[1]\,
+      I5 => \rCnt_reg_n_0_[4]\,
       O => \FSM_onehot_rFSM[3]_i_4_n_0\
     );
 \FSM_onehot_rFSM_reg[0]\: unisim.vcomponents.FDSE
@@ -2418,7 +2380,11 @@ UART_RX_INST: entity work.uart_uart_top_0_0_uart_rx
       D(1) => UART_RX_INST_n_4,
       D(0) => UART_RX_INST_n_5,
       E(0) => rBuffer,
-      \FSM_onehot_rFSM_reg[0]\ => \FSM_onehot_rFSM[3]_i_4_n_0\,
+      \FSM_onehot_rFSM_reg[0]\(3) => \FSM_onehot_rFSM_reg_n_0_[3]\,
+      \FSM_onehot_rFSM_reg[0]\(2) => rTxByte_0,
+      \FSM_onehot_rFSM_reg[0]\(1) => \FSM_onehot_rFSM_reg_n_0_[1]\,
+      \FSM_onehot_rFSM_reg[0]\(0) => \FSM_onehot_rFSM_reg_n_0_[0]\,
+      \FSM_onehot_rFSM_reg[0]_0\ => \FSM_onehot_rFSM[3]_i_4_n_0\,
       \FSM_onehot_rFSM_reg[1]\(0) => UART_RX_INST_n_7,
       \FSM_onehot_rFSM_reg[1]_0\(7) => UART_RX_INST_n_8,
       \FSM_onehot_rFSM_reg[1]_0\(6) => UART_RX_INST_n_9,
@@ -2429,23 +2395,19 @@ UART_RX_INST: entity work.uart_uart_top_0_0_uart_rx
       \FSM_onehot_rFSM_reg[1]_0\(1) => UART_RX_INST_n_14,
       \FSM_onehot_rFSM_reg[1]_0\(0) => UART_RX_INST_n_15,
       \FSM_onehot_rFSM_reg[2]\(0) => rCnt,
-      Q(3) => \FSM_onehot_rFSM_reg_n_0_[3]\,
-      Q(2) => rTxByte_0,
-      Q(1) => \FSM_onehot_rFSM_reg_n_0_[1]\,
-      Q(0) => \FSM_onehot_rFSM_reg_n_0_[0]\,
+      Q(4) => \rCnt_reg_n_0_[4]\,
+      Q(3) => \rCnt_reg_n_0_[3]\,
+      Q(2) => \rCnt_reg_n_0_[2]\,
+      Q(1) => \rCnt_reg_n_0_[1]\,
+      Q(0) => \rCnt_reg_n_0_[0]\,
       iClk => iClk,
       iRst => iRst,
       iRx => iRx,
-      p_1_in => p_1_in,
+      \rBuffer_reg[0]\ => UART_TX_INST_n_11,
       \rCnt_reg[0]\ => \FSM_onehot_rFSM[1]_i_2_n_0\,
-      \rCnt_reg[4]\(4) => \rCnt_reg_n_0_[4]\,
-      \rCnt_reg[4]\(3) => \rCnt_reg_n_0_[3]\,
-      \rCnt_reg[4]\(2) => \rCnt_reg_n_0_[2]\,
-      \rCnt_reg[4]\(1) => \rCnt_reg_n_0_[1]\,
-      \rCnt_reg[4]\(0) => \rCnt_reg_n_0_[0]\,
-      \rCnt_reg[4]_0\ => \rCnt[4]_i_4_n_0\,
-      \rCnt_reg[4]_1\ => \rCnt[4]_i_5_n_0\,
-      \rCnt_reg[4]_2\ => UART_TX_INST_n_12
+      \rCnt_reg[0]_0\ => \rCnt[4]_i_3_n_0\,
+      \rCnt_reg[4]\ => \rCnt[4]_i_5_n_0\,
+      \rCnt_reg[4]_0\ => \rCnt[4]_i_6_n_0\
     );
 UART_TX_INST: entity work.uart_uart_top_0_0_uart_tx
      port map (
@@ -2460,8 +2422,8 @@ UART_TX_INST: entity work.uart_uart_top_0_0_uart_tx
       \FSM_onehot_rFSM_Current_reg[4]_0\(2) => UART_TX_INST_n_8,
       \FSM_onehot_rFSM_Current_reg[4]_0\(1) => UART_TX_INST_n_9,
       \FSM_onehot_rFSM_Current_reg[4]_0\(0) => UART_TX_INST_n_10,
-      \FSM_onehot_rFSM_Current_reg[4]_1\ => UART_TX_INST_n_14,
-      \FSM_onehot_rFSM_reg[2]\ => UART_TX_INST_n_12,
+      \FSM_onehot_rFSM_Current_reg[4]_1\ => UART_TX_INST_n_13,
+      \FSM_onehot_rFSM_reg[2]\ => UART_TX_INST_n_11,
       \FSM_onehot_rFSM_reg[2]_0\ => \FSM_onehot_rFSM[2]_i_2_n_0\,
       Q(2) => \rCnt_reg_n_0_[4]\,
       Q(1) => \rCnt_reg_n_0_[3]\,
@@ -2469,7 +2431,6 @@ UART_TX_INST: entity work.uart_uart_top_0_0_uart_tx
       iClk => iClk,
       iRst => iRst,
       oTx => oTx,
-      p_1_in => p_1_in,
       \rTxByte_reg[7]\(7) => \rBuffer_reg_n_0_[95]\,
       \rTxByte_reg[7]\(6) => \rBuffer_reg_n_0_[94]\,
       \rTxByte_reg[7]\(5) => \rBuffer_reg_n_0_[93]\,
@@ -2479,9 +2440,8 @@ UART_TX_INST: entity work.uart_uart_top_0_0_uart_tx
       \rTxByte_reg[7]\(1) => \rBuffer_reg_n_0_[89]\,
       \rTxByte_reg[7]\(0) => \rBuffer_reg_n_0_[88]\,
       \rTxData_Current_reg[7]_0\(7 downto 0) => rTxByte(7 downto 0),
-      rTxStart_reg(2) => \FSM_onehot_rFSM_reg_n_0_[3]\,
-      rTxStart_reg(1) => rTxByte_0,
-      rTxStart_reg(0) => \FSM_onehot_rFSM_reg_n_0_[1]\,
+      rTxStart_reg(1) => \FSM_onehot_rFSM_reg_n_0_[3]\,
+      rTxStart_reg(0) => rTxByte_0,
       rTxStart_reg_0 => rTxStart_reg_n_0
     );
 \rBuffer[10]_i_1\: unisim.vcomponents.LUT3
@@ -4132,7 +4092,16 @@ UART_TX_INST: entity work.uart_uart_top_0_0_uart_tx
       Q => in8(17),
       R => iRst
     );
-\rCnt[4]_i_4\: unisim.vcomponents.LUT3
+\rCnt[4]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"2"
+    )
+        port map (
+      I0 => \FSM_onehot_rFSM_reg_n_0_[1]\,
+      I1 => \rCnt_reg_n_0_[4]\,
+      O => \rCnt[4]_i_3_n_0\
+    );
+\rCnt[4]_i_5\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"80"
     )
@@ -4140,9 +4109,9 @@ UART_TX_INST: entity work.uart_uart_top_0_0_uart_tx
       I0 => \rCnt_reg_n_0_[2]\,
       I1 => \rCnt_reg_n_0_[0]\,
       I2 => \rCnt_reg_n_0_[1]\,
-      O => \rCnt[4]_i_4_n_0\
+      O => \rCnt[4]_i_5_n_0\
     );
-\rCnt[4]_i_5\: unisim.vcomponents.LUT5
+\rCnt[4]_i_6\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFFF7"
     )
@@ -4150,9 +4119,9 @@ UART_TX_INST: entity work.uart_uart_top_0_0_uart_tx
       I0 => \rCnt_reg_n_0_[2]\,
       I1 => \rCnt_reg_n_0_[3]\,
       I2 => \rCnt_reg_n_0_[1]\,
-      I3 => \rCnt_reg_n_0_[4]\,
-      I4 => \rCnt_reg_n_0_[0]\,
-      O => \rCnt[4]_i_5_n_0\
+      I3 => \rCnt_reg_n_0_[0]\,
+      I4 => \rCnt_reg_n_0_[4]\,
+      O => \rCnt[4]_i_6_n_0\
     );
 \rCnt_reg[0]\: unisim.vcomponents.FDRE
      port map (
@@ -4262,7 +4231,7 @@ rTxStart_reg: unisim.vcomponents.FDRE
      port map (
       C => iClk,
       CE => '1',
-      D => UART_TX_INST_n_14,
+      D => UART_TX_INST_n_13,
       Q => rTxStart_reg_n_0,
       R => iRst
     );

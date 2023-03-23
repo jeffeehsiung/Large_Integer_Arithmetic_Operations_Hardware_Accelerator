@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Mon Mar 20 07:29:24 2023
--- Host        : ubuntu running 64-bit unknown
+-- Date        : Thu Mar 23 10:35:42 2023
+-- Host        : ubuntu running 64-bit Ubuntu 18.04.6 LTS
 -- Command     : write_vhdl -force -mode synth_stub
 --               /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/ip/uart_uart_top_0_0/uart_uart_top_0_0_stub.vhdl
 -- Design      : uart_uart_top_0_0
