@@ -43,7 +43,7 @@ module uart_top #(
   reg [NBYTES*8-1:0] rB;
   reg [OPERAND_WIDTH:0] rRes;
   
-  reg [$clog2(NBYTES):0] rCnt; // counting n-th byte
+  reg [$clog2(NBYTES)+1:0] rCnt; // counting n-th byte + one byte including carry
   
   // Connection to UART RX (inputs = registers, outputs = wires)
   
@@ -165,23 +165,34 @@ module uart_top #(
             if (wDone) begin                                          // if 64byte + carry result has been calcualted
                 rRes <= wRes;                                         // extract the result buffer immediately
                 rStart <= 0;                                          // set rStart to 0 to avoid restarting
+//                rCnt <= 0;                                            // reset counter to 0
                 rFSM <= s_TX;                                         // go to TX state to send result to PC
-                rTxStart <= 1;                                        // set rTxStart to high for s_TX to start sending
+//                rTxStart <= 1;                                        // set rTxStart to high for s_TX to start sending
             end else begin
                 rFSM <= s_MP_ADD;
-                rStart <= 0;                                          // set rStart to 0 to avoid restarting                
+                rStart <= 0;                                          // set rStart to 0 to avoid restarting       
+//                rCnt <= 0;                                            // reset counter to 0         
             end
           end
                        
         s_TX :                                                        // state to prepare the tx_Nbytes (save into buffer)
           begin
-            if ( (rCnt < NBYTES) && (wTxBusy ==0) )                   // if tx line is not busy and bytes count < bytes_to_be_sent
-              begin
+            if ( (rCnt < NBYTES+1) && (wTxBusy ==0) )                 // if tx line is not busy and bytes count < bytes_to_be_sent. 
+              begin                                                   // intotal NBYTES+1 as the extra byte is 7*0 + one carry bit
+                if (rCnt == 0) begin                                  // since send from MSB, we send the carry first
+                    rFSM <= s_WAIT_TX;                                // next state is to go wait_for_Nbytes_tx_to_be_done buffer state
+                    rTxStart <= 1; 
+                    rTxByte <= {7'b0000000 ,rRes[NBYTES*8]}; // we send the the extra byte with carry
+                    rRes <= {rRes[NBYTES*8-1:0] , 1'b0};              // we shift one bit from right to left
+                    rCnt <= rCnt + 1;                       
+                end                                                  // no longer the carry processing state
+                else begin
                 rFSM <= s_WAIT_TX;                                    // next state is to go wait_for_Nbytes_tx_to_be_done buffer state
                 rTxStart <= 1; 
-                rTxByte <= rRes[NBYTES*8-1:NBYTES*8-8];               // we send the uppermost byte
-                rRes <= {rRes[NBYTES*8-9:0] , 8'b0000_0000};          // we shift from right to left
+                rTxByte <= rRes[NBYTES*8-0:NBYTES*8-7];                 // we send the uppermost byte from 0 to 7, meaning from 129th bit to 121th bit (starts from 1) 
+                rRes <= {rRes[NBYTES*8-8:0] , 8'b0000_0000};          // we shift from right to left
                 rCnt <= rCnt + 1;                                     
+                end
               end 
             else 
               begin                                                   // tCnt == NBYTES && wTxBusy || wTxBusy == 1

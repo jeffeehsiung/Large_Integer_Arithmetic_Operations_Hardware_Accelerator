@@ -8,5 +8,5 @@ May 27 2020
 /media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/imports/new/ripple_carry_adder_Nb.v,1677280024,verilog,,/media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/new/uart_rx.v,,ripple_carry_adder_Nb,,,,,,,,
 /media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/new/mp_adder.v,1680525679,verilog,,/media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/imports/new/ripple_carry_adder_Nb.v,,mp_adder,,,,,,,,
 /media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/new/uart_rx.v,1679425272,verilog,,/media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/new/uart_top.v,,uart_rx,,,,,,,,
-/media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/new/uart_top.v,1680536969,verilog,,/media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/new/uart_tx.v,,uart_top,,,,,,,,
+/media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/new/uart_top.v,1680542346,verilog,,/media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/new/uart_tx.v,,uart_top,,,,,,,,
 /media/jeffee/T7/vivado/lab3/lab3.srcs/sources_1/new/uart_tx.v,1679085800,verilog,,/media/jeffee/T7/vivado/lab3/lab3.srcs/sim_1/new/uart_top_TB.v,,uart_tx,,,,,,,,

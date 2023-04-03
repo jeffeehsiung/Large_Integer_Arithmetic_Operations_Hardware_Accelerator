@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/media/jeffee/T7/vivado/UART/UART.runs/synth_1'
+HD_PWD='/media/jeffee/T7/vivado/lab3/lab3.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
