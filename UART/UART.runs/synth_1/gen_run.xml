@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1679592898">
-  <File Type="VDS-TIMINGSUMMARY" Name="uart_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="uart_wrapper.dcp"/>
   <File Type="RDS-UTIL-PB" Name="uart_wrapper_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="uart_wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="uart_wrapper_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="uart_wrapper.vds"/>
-  <File Type="REPORTS-TCL" Name="uart_wrapper_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="uart_wrapper_timing_summary_synth.pb"/>
   <File Type="PA-TCL" Name="uart_wrapper.tcl"/>
+  <File Type="RDS-UTIL" Name="uart_wrapper_utilization_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="uart_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="uart_wrapper.vds"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/uart_rx.v">
@@ -80,6 +77,6 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="uart_uart_top_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="uart_Debounce_Switch_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="uart_uart_top_0_0"/>
 </GenRun>
