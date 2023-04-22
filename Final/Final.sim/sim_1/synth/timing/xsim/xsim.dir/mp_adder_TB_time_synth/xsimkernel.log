@@ -1,0 +1,7 @@
+Running: xsim.dir/mp_adder_TB_time_synth/xsimk -simmode gui -wdb mp_adder_TB_time_synth.wdb -simrunnum 0 -socket 52767
+Design successfully loaded
+Design Loading Memory Usage: 96212 KB (Peak: 96660 KB)
+Design Loading CPU Usage: 160 ms
+Simulation completed
+Simulation Memory Usage: 177956 KB (Peak: 235480 KB)
+Simulation CPU Usage: 930 ms

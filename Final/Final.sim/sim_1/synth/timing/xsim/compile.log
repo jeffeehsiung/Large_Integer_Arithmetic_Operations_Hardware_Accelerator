@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.sim/sim_1/synth/timing/xsim/mp_adder_TB_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mp_adder
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sim_1/new/mp_adder_TB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mp_adder_TB

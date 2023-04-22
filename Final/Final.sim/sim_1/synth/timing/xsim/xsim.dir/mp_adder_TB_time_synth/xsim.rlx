@@ -1,0 +1,12 @@
+
+{ 
+    crc :  10419821944061081084  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto 7716563f8bc4431197a47444ccae442a --incr --debug typical --relax --mt 8 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot mp_adder_TB_time_synth -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.mp_adder_TB xil_defaultlib.glbl" , 
+    buildDate : "May 27 2020" , 
+    buildTime : "19:59:15" , 
+    linkCmd : "/usr/bin/gcc -Wa,-W  -O -fPIC  -m64  -Wl,--no-as-needed  -Wl,--unresolved-symbols=ignore-all  -o \"xsim.dir/mp_adder_TB_time_synth/xsimk\"   \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_0.lnx64.o\" \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_1.lnx64.o\" \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_2.lnx64.o\" \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_3.lnx64.o\" \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_4.lnx64.o\" \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_5.lnx64.o\" \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_6.lnx64.o\" \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_7.lnx64.o\" \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_8.lnx64.o\" \"xsim.dir/mp_adder_TB_time_synth/obj/xsim_9.lnx64.o\" -L\"/tools/Xilinx/Vivado/2020.1/lib/lnx64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

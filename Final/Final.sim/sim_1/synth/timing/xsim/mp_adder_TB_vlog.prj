@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"mp_adder_TB_time_synth.v" \
+"../../../../../Final.srcs/sim_1/new/mp_adder_TB.v" \
+
+# Do not sort compile order
+nosort

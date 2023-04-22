@@ -1,0 +1,6 @@
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+342951248230122294549361859254880373000
+                                      x
+Test Passed - Correct Addition
+$stop called at time : 646904 ps : File "/media/jeffee/T7/vivado/Final/Final.srcs/sim_1/new/mp_adder_TB.v" Line 68
