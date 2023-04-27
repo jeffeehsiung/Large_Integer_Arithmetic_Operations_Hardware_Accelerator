@@ -87,9 +87,9 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CLA_32bit.v
-  /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CSA_MUX_512bit.v
-  /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mux2to1.v
+  /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CLA_16b_EXP.v
+  /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CSA_MUX.v
+  /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/partial_full_adder.v
   /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mp_adder.v
 }
 OPTRACE "Adding files" END { }

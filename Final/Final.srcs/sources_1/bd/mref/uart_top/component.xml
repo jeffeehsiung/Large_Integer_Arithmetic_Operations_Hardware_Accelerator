@@ -15,7 +15,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d013e765</spirit:value>
+            <spirit:value>6871d483</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -28,7 +28,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d013e765</spirit:value>
+            <spirit:value>6871d483</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -104,7 +104,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>ADDER_WIDTH</spirit:name>
         <spirit:displayName>Adder Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.ADDER_WIDTH">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.ADDER_WIDTH">128</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>NBYTES</spirit:name>
@@ -144,7 +144,7 @@
     <spirit:parameter>
       <spirit:name>ADDER_WIDTH</spirit:name>
       <spirit:displayName>Adder Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ADDER_WIDTH">16</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ADDER_WIDTH">128</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>NBYTES</spirit:name>
@@ -181,7 +181,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-04-22T00:41:59Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2023-04-27T22:47:47Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>

@@ -4,8 +4,8 @@ module mp_adder_TB();
 
   localparam CLOCK_PERIOD_NS = 100;
   
-  localparam OPERAND_WIDTH   = 128; 
-  localparam ADDER_WIDTH     = 16; 
+  localparam OPERAND_WIDTH   = 512; 
+  localparam ADDER_WIDTH     = 128; 
   
   reg           rClk, rRst, rStart;
   reg [OPERAND_WIDTH-1:0]   rA, rB;
@@ -43,8 +43,8 @@ module mp_adder_TB();
       #(5*T);
       
       rStart = 1;
-      rA <= 128'h12121212_34343434_56565656_78787878;
-      rB <= 128'hefefefef_cdcdcdcd_abababab_90909090;
+      rA <= 512'd13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433647710209125;
+      rB <= 512'd12153524;
       #T;
       rExpectedResult = rA + rB;
       rStart = 0;
@@ -57,7 +57,7 @@ module mp_adder_TB();
       $display(wRes);
       
       // compare results
-      // if using the test vector, answer should be: 0x1_02020202_02020202_02020202_09090908
+      // if using the test vector, answer should be: 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD29E93A5
       if ( rExpectedResult != wRes )
         $display("Test Failed - Incorrect Addition");
       else

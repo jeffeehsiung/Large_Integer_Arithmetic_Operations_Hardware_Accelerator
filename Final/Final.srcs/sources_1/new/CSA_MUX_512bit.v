@@ -28,7 +28,7 @@ module CSA_MUX_512bit (
     output cout
     );
     
-    // N = 512, M = 32, N/M blocks of M-bit CLA
+    // N = 512, M = 32, N/M = 16 blocks of M-bit CLA
     // each row has 32 bits to save respectively the cout, sum, and mux_sel
     wire [31:0] csa_cout[15:0];
     wire [31:0] csa_sum[15:0];

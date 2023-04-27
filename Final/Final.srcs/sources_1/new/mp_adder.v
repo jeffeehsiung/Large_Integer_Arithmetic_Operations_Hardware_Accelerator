@@ -6,7 +6,7 @@ module mp_adder #(
       // if the operands you want to add have an OPERAND_WIDTH non-multiple of ADDER_WIDTH
       //   you'll have to extend them by padding them with zeroes
       parameter OPERAND_WIDTH = 512,
-      parameter ADDER_WIDTH   = 32,
+      parameter ADDER_WIDTH   = 128,
       parameter N_ITERATIONS  = OPERAND_WIDTH / ADDER_WIDTH
     )
     (
@@ -46,6 +46,7 @@ module mp_adder #(
     wire [OPERAND_WIDTH-1:0] muxA_Out;
     
     assign muxA_Out = (muxA_sel == 0) ? iOpA : { {ADDER_WIDTH{1'b0}}  , regA_Q[OPERAND_WIDTH-1:ADDER_WIDTH]};
+//    assign muxA_Out = (muxA_sel == 0) ? iOpA : { regA_Q[OPERAND_WIDTH-1:0]};
     
     // connect the output of the multiplexer to the input of register A
     assign regA_D = muxA_Out;
@@ -58,6 +59,7 @@ module mp_adder #(
     wire  [OPERAND_WIDTH-1:0] muxB_Out;
     
     assign muxB_Out = (muxB_sel == 0) ? iOpB : { {ADDER_WIDTH{1'b0}}  , regB_Q[OPERAND_WIDTH-1:ADDER_WIDTH]};
+//    assign muxB_Out = (muxB_sel == 0) ? iOpB : {regB_Q[OPERAND_WIDTH-1:0]};
     
     // connect the output of the multiplexer to the input of register B
     assign regB_D = muxB_Out;
@@ -83,12 +85,12 @@ module mp_adder #(
 //      );
 
 
-    CSA_MUX_512bit CSA_MUX_inst (
+    CSA_MUX #(ADDER_WIDTH) CSA_MUX_inst (
         operandA,
         operandB,
         carry_in,
-        result,
-        carry_out
+        carry_out,
+        result
     );
 
 
@@ -101,6 +103,7 @@ module mp_adder #(
     begin
         if(iRst==1)   regResult <= { OPERAND_WIDTH{1'b0} };
       else            regResult <= { result, regResult[OPERAND_WIDTH-1:ADDER_WIDTH] };
+//      else            regResult <= { result};
     end
 
     // Describe a 1-bit register for storing the carry-out

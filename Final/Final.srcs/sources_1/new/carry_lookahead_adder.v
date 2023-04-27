@@ -59,9 +59,9 @@ module carry_lookahead_adder #(
     partial_full_adder pfa_inst7(a[7], b[7], C[7], sum[7], P[7], G[7]);
     
     assign C[8] = G[7] | (P[7] & G[6]) | (P[7] & P[6] & G[5]) | (P[7] & P[6] & P[5] & G[4]) | (P[7] & P[6] & P[5] & P[4] & G[3]) | (P[7] & P[6] & P[5] & P[4] & P[3] & G[2]) | (P[7] & P[6] & P[5] & P[4] & P[3] & P[2] & G[1]) | (P[7] & P[6] & P[5] & P[4] & P[3] & P[2] & P[1] & G[0]) | (P[7] & P[6] & P[5] & P[4] & P[3] & P[2] & P[1] & P[0] & C[0]);
+    
 
     // generate sum and carry bit
-    assign sum = P ^ cin;
     assign cout = C[8];
     
 endmodule
