@@ -37,7 +37,7 @@ module CLA_32bit_TB;
     
 // 2. Instantiate the design and connect to testbench variables
     // Module instantiation override
-   CLA_32bit cla_32bit_inst(a,b,cin,cout,sum);
+   CLA_Mb_FOR #(n) cla_inst(a,b,cin,sum,cout);
 
 // 3. Provide stimulus to test the design
    initial 
