@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Mon Mar 20 05:08:49 2023
+// Date        : Sat May  6 15:35:33 2023
 // Host        : ubuntu running 64-bit unknown
 // Command     : write_verilog -force -mode funcsim
-//               /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0_sim_netlist.v
+//               /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0_sim_netlist.v
 // Design      : uart_Debounce_Switch_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,7 +19,7 @@ module uart_Debounce_Switch_0_0
    (i_Clk,
     i_Switch,
     o_Switch);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 i_Clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_Clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, CLK_DOMAIN uart_i_Clk_0, INSERT_VIP 0" *) input i_Clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 i_Clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_Clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, CLK_DOMAIN uart_iClk, INSERT_VIP 0" *) input i_Clk;
   input i_Switch;
   output o_Switch;
 

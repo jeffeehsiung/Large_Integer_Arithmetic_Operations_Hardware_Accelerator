@@ -47,6 +47,7 @@ module CSA_MUX #(
     // a & b : 32*m +: 32, cout = 3m
 //    CLA_Mb_FOR#(M) cla_inst( a[M-1:0], b[M-1:0], cin, mux_c[0], sum[M-1:0]);
     CLA_16b_EXP#(M) cla_inst(a[M-1:0], b[M-1:0], cin, sum[M-1:0], mux_c[0]);
+//    carry_lookahead_adder #(M) cla_inst(a[M-1:0], b[M-1:0], cin, sum[M-1:0], mux_c[0]);
 
     // Group of 32-bit CLA adders with carry and sum outputs
     genvar i;
@@ -58,6 +59,8 @@ module CSA_MUX #(
 //            CLA_Mb_FOR#(M) cla_inst_1( a[M*i +: M], b[M*i +: M], 1, mux_c[(3*i)-1], mux_sum_1[i-1]);
             CLA_16b_EXP#(M) cla_inst_0( a[M*i +: M], b[M*i +: M], 0, mux_sum_0[i-1], mux_c[(3*i)-2]);
             CLA_16b_EXP#(M) cla_inst_1( a[M*i +: M], b[M*i +: M], 1, mux_sum_1[i-1], mux_c[(3*i)-1]);
+//            carry_lookahead_adder #(M) cla_inst_0(a[M*i +: M], b[M*i +: M], 0, mux_sum_0[i-1], mux_c[(3*i)-2]);
+//            carry_lookahead_adder #(M) cla_inst_1(a[M*i +: M], b[M*i +: M], 0, mux_sum_0[i-1], mux_c[(3*i)-1]);
             // instantiate sum mux and carry mux
             assign sum[M*i +: M] = (mux_c[3*(i-1)] == 0)? mux_sum_0[i-1] : mux_sum_1[i-1];
             assign mux_c[3*i] = (mux_c[3*(i-1)] == 0)? mux_c[(3*i)-2] : mux_c[(3*i)-1];

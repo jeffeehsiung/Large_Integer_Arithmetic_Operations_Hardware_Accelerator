@@ -1,7 +1,8 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../Final.srcs/sources_1/new/CLA_32bit.v" \
+"../../../../Final.srcs/sources_1/new/CLA_16b_EXP.v" \
 "../../../../Final.srcs/sources_1/new/CSA_MUX.v" \
+"../../../../Final.srcs/sources_1/new/partial_full_adder.v" \
 "../../../../Final.srcs/sim_1/new/CSA_MUX_TB.v" \
 
 # compile glbl module

@@ -24,10 +24,10 @@ module CSA_MUX_TB;
 
 // 1. Declare testbench variables
     `ifndef N
-        localparam N = 512; 
+        localparam N = 256; 
     `endif
     `ifndef M
-        localparam M = 32;
+        localparam M = 64;
     `endif
     
     reg [N-1:0] a;

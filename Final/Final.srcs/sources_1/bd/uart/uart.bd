@@ -10,7 +10,7 @@
     },
     "design_tree": {
       "Debounce_Switch_0": "",
-      "uart_top_0": ""
+      "uart_top_sub_0": ""
     },
     "ports": {
       "iClk": {
@@ -49,12 +49,12 @@
           }
         }
       },
-      "uart_top_0": {
-        "vlnv": "xilinx.com:module_ref:uart_top:1.0",
-        "xci_name": "uart_uart_top_0_0",
+      "uart_top_sub_0": {
+        "vlnv": "xilinx.com:module_ref:uart_top_sub:1.0",
+        "xci_name": "uart_uart_top_sub_0_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "uart_top",
+          "ref_name": "uart_top_sub",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -78,7 +78,7 @@
         "ports": [
           "iClk",
           "Debounce_Switch_0/i_Clk",
-          "uart_top_0/iClk"
+          "uart_top_sub_0/iClk"
         ]
       },
       "i_Switch_0_1": {
@@ -87,22 +87,22 @@
           "Debounce_Switch_0/i_Switch"
         ]
       },
+      "uart_top_sub_0_oTx": {
+        "ports": [
+          "uart_top_sub_0/oTx",
+          "oTx"
+        ]
+      },
       "Debounce_Switch_0_o_Switch": {
         "ports": [
           "Debounce_Switch_0/o_Switch",
-          "uart_top_0/iRst"
+          "uart_top_sub_0/iRst"
         ]
       },
-      "iRx_0_1": {
+      "iRx_1": {
         "ports": [
           "iRx",
-          "uart_top_0/iRx"
-        ]
-      },
-      "uart_top_0_oTx": {
-        "ports": [
-          "uart_top_0/oTx",
-          "oTx"
+          "uart_top_sub_0/iRx"
         ]
       }
     }

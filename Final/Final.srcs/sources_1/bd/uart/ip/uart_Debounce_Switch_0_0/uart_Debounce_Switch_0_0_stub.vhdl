@@ -1,10 +1,10 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Mon Mar 20 05:08:49 2023
+-- Date        : Sat May  6 15:35:33 2023
 -- Host        : ubuntu running 64-bit unknown
 -- Command     : write_vhdl -force -mode synth_stub
---               /media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0_stub.vhdl
+--               /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0_stub.vhdl
 -- Design      : uart_Debounce_Switch_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1

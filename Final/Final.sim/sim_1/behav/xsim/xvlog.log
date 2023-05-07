@@ -1,10 +1,16 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CLA_16b_EXP.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CLA_16b_EXP
 INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CSA_MUX.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module CSA_MUX
-INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/carry_lookahead_adder.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module carry_lookahead_adder
-INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mp_adder.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module mp_adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mp_adder_sub.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mp_adder_sub
 INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/partial_full_adder.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module partial_full_adder
-INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sim_1/new/mp_adder_TB.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module mp_adder_TB
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_rx_sub.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_rx_sub
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_top_sub.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_top_sub
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "/media/jeffee/T7/vivado/Final/Final.srcs/sim_1/new/uart_top_sub_TB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_top_sub_TB

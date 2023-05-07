@@ -2,22 +2,22 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="uart" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1682635673"/>
-    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1682635673"/>
-    <Generation Name="SIMULATION" State="RESET" Timestamp="1682635673"/>
-    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1682635673"/>
+    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1683471979"/>
+    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1683471979"/>
+    <Generation Name="SIMULATION" State="RESET" Timestamp="1683471979"/>
+    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1683471979"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
-      <File Name="ip/uart_uart_top_0_0/uart_uart_top_0_0.xci" Type="IP">
-        <Instance HierarchyPath="uart_top_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1680542541" IsTrackable="true" IsStatusTracked="true"/>
+      <File Name="ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Debounce_Switch_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1679313861" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0.xci" Type="IP">
-        <Instance HierarchyPath="Debounce_Switch_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1679313861" IsTrackable="true" IsStatusTracked="true"/>
+      <File Name="ip/uart_uart_top_sub_0_0/uart_uart_top_sub_0_0.xci" Type="IP">
+        <Instance HierarchyPath="uart_top_sub_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
