@@ -69,8 +69,8 @@ module uart_top_sub #(
      );
   
   // instantiate module under test
-  uart_rx_sub #( .CLK_FREQ(CLK_FREQ), .BAUD_RATE(BAUD_RATE) ) 
-  UART_RX_sub_INST
+  uart_rx #( .CLK_FREQ(CLK_FREQ), .BAUD_RATE(BAUD_RATE) ) 
+  UART_RX_INST
     (.iClk(iClk),
      .iRst(iRst),
      .iRxSerial(iRx),
@@ -194,6 +194,7 @@ module uart_top_sub #(
                 rFSM <= s_TX;                                         // go to TX state to send result to PC
 //                rTxStart <= 1;                                        // set rTxStart to high for s_TX to start sending
             end else begin
+//                rRes <= wRes;                                         // extract the result buffer immediately
                 rFSM <= s_MP_ADD;
                 rStart <= 0;                                          // set rStart to 0 to avoid restarting       
 //                rCnt <= 0;                                            // reset counter to 0         

@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log uart_top_sub.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_top_sub.tcl
+    with args -log uart_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_wrapper.tcl
 
 
 ****** Vivado v2020.1 (64-bit)
@@ -8,204 +8,89 @@
   **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
     ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 
-source uart_top_sub.tcl -notrace
-Command: synth_design -top uart_top_sub -part xc7z020clg400-1
+source uart_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+Command: synth_design -top uart_wrapper -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 76103
+INFO: [Synth 8-7075] Helper process launched with PID 125949
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2148.273 ; gain = 0.000 ; free physical = 114 ; free virtual = 206
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2154.746 ; gain = 0.000 ; free physical = 111 ; free virtual = 491
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'uart_top_sub' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_top_sub.v:3]
-	Parameter OPERAND_WIDTH bound to: 512 - type: integer 
-	Parameter ADDER_WIDTH bound to: 128 - type: integer 
-	Parameter NBYTES bound to: 64 - type: integer 
-	Parameter CLK_FREQ bound to: 125000000 - type: integer 
-	Parameter BAUD_RATE bound to: 115200 - type: integer 
-	Parameter s_IDLE bound to: 3'b000 
-	Parameter s_WAIT_RA bound to: 3'b001 
-	Parameter s_WAIT_RB bound to: 3'b010 
-	Parameter s_WAIT_RS bound to: 3'b011 
-	Parameter s_MP_ADD bound to: 3'b100 
-	Parameter s_TX bound to: 3'b101 
-	Parameter s_WAIT_TX bound to: 3'b110 
-	Parameter s_DONE bound to: 3'b111 
-INFO: [Synth 8-6157] synthesizing module 'uart_tx' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_tx.v:3]
-	Parameter CLK_FREQ bound to: 125000000 - type: integer 
-	Parameter BAUD_RATE bound to: 115200 - type: integer 
-	Parameter CLKS_PER_BIT bound to: 1085 - type: integer 
-	Parameter sIDLE bound to: 3'b000 
-	Parameter sTX_START bound to: 3'b001 
-	Parameter sTX_DATA bound to: 3'b010 
-	Parameter sTX_STOP bound to: 3'b011 
-	Parameter sDONE bound to: 3'b100 
-INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (1#1) [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_tx.v:3]
-INFO: [Synth 8-6157] synthesizing module 'uart_rx_sub' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_rx_sub.v:3]
-	Parameter CLK_FREQ bound to: 125000000 - type: integer 
-	Parameter BAUD_RATE bound to: 115200 - type: integer 
-	Parameter CLKS_PER_BIT bound to: 1085 - type: integer 
-	Parameter sIDLE bound to: 3'b000 
-	Parameter sRX_START bound to: 3'b001 
-	Parameter sRX_DATA bound to: 3'b010 
-	Parameter sRX_STOP bound to: 3'b011 
-	Parameter sDONE bound to: 3'b100 
-INFO: [Synth 8-6155] done synthesizing module 'uart_rx_sub' (2#1) [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_rx_sub.v:3]
-INFO: [Synth 8-6157] synthesizing module 'mp_adder_sub' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mp_adder_sub.v:3]
-	Parameter OPERAND_WIDTH bound to: 512 - type: integer 
-	Parameter ADDER_WIDTH bound to: 128 - type: integer 
-	Parameter N_ITERATIONS bound to: 4 - type: integer 
-	Parameter s_IDLE bound to: 3'b000 
-	Parameter s_STORE_OPS bound to: 3'b001 
-	Parameter s_ADD_FIRST bound to: 3'b010 
-	Parameter s_ADD_WORDS bound to: 3'b011 
-	Parameter s_DONE bound to: 3'b100 
-INFO: [Synth 8-6157] synthesizing module 'CSA_MUX' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CSA_MUX.v:23]
-	Parameter N bound to: 128 - type: integer 
-	Parameter M bound to: 16 - type: integer 
-	Parameter m bound to: 8 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'CLA_16b_EXP' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CLA_16b_EXP.v:23]
-	Parameter M bound to: 16 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'partial_full_adder' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/partial_full_adder.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'partial_full_adder' (3#1) [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/partial_full_adder.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'CLA_16b_EXP' (4#1) [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CLA_16b_EXP.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'CSA_MUX' (5#1) [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/CSA_MUX.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'mp_adder_sub' (6#1) [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mp_adder_sub.v:3]
-INFO: [Synth 8-226] default block is never used [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_top_sub.v:111]
-INFO: [Synth 8-6155] done synthesizing module 'uart_top_sub' (7#1) [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_top_sub.v:3]
+INFO: [Synth 8-6157] synthesizing module 'uart_wrapper' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/hdl/uart_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'uart' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/synth/uart.v:13]
+INFO: [Synth 8-6157] synthesizing module 'uart_Debounce_Switch_0_0' [/media/jeffee/T7/vivado/Final/Final.runs/synth_1/.Xil/Vivado-125912-ubuntu/realtime/uart_Debounce_Switch_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uart_Debounce_Switch_0_0' (1#1) [/media/jeffee/T7/vivado/Final/Final.runs/synth_1/.Xil/Vivado-125912-ubuntu/realtime/uart_Debounce_Switch_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'uart_uart_top_sub_0_0' [/media/jeffee/T7/vivado/Final/Final.runs/synth_1/.Xil/Vivado-125912-ubuntu/realtime/uart_uart_top_sub_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uart_uart_top_sub_0_0' (2#1) [/media/jeffee/T7/vivado/Final/Final.runs/synth_1/.Xil/Vivado-125912-ubuntu/realtime/uart_uart_top_sub_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uart' (3#1) [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/synth/uart.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'uart_wrapper' (4#1) [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/hdl/uart_wrapper.v:12]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 2148.273 ; gain = 0.000 ; free physical = 610 ; free virtual = 879
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 2154.746 ; gain = 0.000 ; free physical = 694 ; free virtual = 1173
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2148.273 ; gain = 0.000 ; free physical = 604 ; free virtual = 878
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2154.746 ; gain = 0.000 ; free physical = 687 ; free virtual = 1167
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2148.273 ; gain = 0.000 ; free physical = 604 ; free virtual = 878
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2154.746 ; gain = 0.000 ; free physical = 687 ; free virtual = 1167
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2148.273 ; gain = 0.000 ; free physical = 585 ; free virtual = 866
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2154.746 ; gain = 0.000 ; free physical = 675 ; free virtual = 1160
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0_in_context.xdc] for cell 'uart_i/Debounce_Switch_0'
+Finished Parsing XDC File [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0_in_context.xdc] for cell 'uart_i/Debounce_Switch_0'
+Parsing XDC File [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/ip/uart_uart_top_sub_0_0/uart_uart_top_sub_0_0/uart_uart_top_sub_0_0_in_context.xdc] for cell 'uart_i/uart_top_sub_0'
+Finished Parsing XDC File [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/bd/uart/ip/uart_uart_top_sub_0_0/uart_uart_top_sub_0_0/uart_uart_top_sub_0_0_in_context.xdc] for cell 'uart_i/uart_top_sub_0'
 Parsing XDC File [/media/jeffee/T7/vivado/Final/Final.srcs/constrs_1/new/pynq-z2.xdc]
 Finished Parsing XDC File [/media/jeffee/T7/vivado/Final/Final.srcs/constrs_1/new/pynq-z2.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/media/jeffee/T7/vivado/Final/Final.srcs/constrs_1/new/pynq-z2.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/uart_top_sub_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/uart_top_sub_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/media/jeffee/T7/vivado/Final/Final.srcs/constrs_1/new/pynq-z2.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/uart_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/uart_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/media/jeffee/T7/vivado/Final/Final.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/media/jeffee/T7/vivado/Final/Final.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2273.906 ; gain = 0.000 ; free physical = 423 ; free virtual = 755
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2178.656 ; gain = 0.000 ; free physical = 560 ; free virtual = 1076
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2273.906 ; gain = 0.000 ; free physical = 421 ; free virtual = 755
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2178.656 ; gain = 0.000 ; free physical = 559 ; free virtual = 1076
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 2273.906 ; gain = 125.633 ; free physical = 505 ; free virtual = 848
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2178.656 ; gain = 23.910 ; free physical = 621 ; free virtual = 1141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 2273.906 ; gain = 125.633 ; free physical = 505 ; free virtual = 848
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2178.656 ; gain = 23.910 ; free physical = 621 ; free virtual = 1141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for uart_i. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for uart_i/Debounce_Switch_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for uart_i/uart_top_sub_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 2273.906 ; gain = 125.633 ; free physical = 505 ; free virtual = 848
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2178.656 ; gain = 23.910 ; free physical = 620 ; free virtual = 1141
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'rFSM_Current_reg' in module 'uart_tx'
-INFO: [Synth 8-802] inferred FSM for state register 'rFSM_current_reg' in module 'mp_adder_sub'
-INFO: [Synth 8-802] inferred FSM for state register 'rFSM_reg' in module 'uart_top_sub'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                   sIDLE |                            00001 |                              000
-               sTX_START |                            00010 |                              001
-                sTX_DATA |                            00100 |                              010
-                sTX_STOP |                            01000 |                              011
-                   sDONE |                            10000 |                              100
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'rFSM_Current_reg' using encoding 'one-hot' in module 'uart_tx'
-WARNING: [Synth 8-327] inferring latch for variable 'wRxData_Next_reg' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_rx_sub.v:98]
-WARNING: [Synth 8-327] inferring latch for variable 'wCnt_Next_reg' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_rx_sub.v:92]
-WARNING: [Synth 8-327] inferring latch for variable 'wBit_Next_reg' [/media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_rx_sub.v:93]
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                  s_IDLE |                              000 |                              000
-             s_STORE_OPS |                              001 |                              001
-             s_ADD_FIRST |                              010 |                              010
-             s_ADD_WORDS |                              011 |                              011
-                  s_DONE |                              100 |                              100
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'rFSM_current_reg' using encoding 'sequential' in module 'mp_adder_sub'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                  s_IDLE |                          0000001 |                              000
-               s_WAIT_RA |                          0000010 |                              001
-               s_WAIT_RB |                          0000100 |                              010
-               s_WAIT_RS |                          0001000 |                              011
-                s_MP_ADD |                          0010000 |                              100
-                    s_TX |                          0100000 |                              101
-               s_WAIT_TX |                          1000000 |                              110
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'rFSM_reg' using encoding 'one-hot' in module 'uart_top_sub'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 2273.906 ; gain = 125.633 ; free physical = 477 ; free virtual = 839
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2178.656 ; gain = 23.910 ; free physical = 617 ; free virtual = 1141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input   12 Bit       Adders := 1     
-	   2 Input   11 Bit       Adders := 1     
-	   2 Input    8 Bit       Adders := 1     
-	   2 Input    4 Bit       Adders := 1     
-	   2 Input    3 Bit       Adders := 2     
-+---XORs : 
-	   3 Input      1 Bit         XORs := 240   
-+---Registers : 
-	              513 Bit    Registers := 1     
-	              512 Bit    Registers := 5     
-	               12 Bit    Registers := 2     
-	                8 Bit    Registers := 5     
-	                4 Bit    Registers := 1     
-	                3 Bit    Registers := 3     
-	                1 Bit    Registers := 6     
-+---Muxes : 
-	   2 Input  513 Bit        Muxes := 2     
-	   7 Input  513 Bit        Muxes := 1     
-	   2 Input  512 Bit        Muxes := 4     
-	   2 Input   16 Bit        Muxes := 7     
-	   5 Input   12 Bit        Muxes := 1     
-	   6 Input   12 Bit        Muxes := 1     
-	   2 Input   12 Bit        Muxes := 2     
-	   5 Input    8 Bit        Muxes := 1     
-	   2 Input    8 Bit        Muxes := 10    
-	   7 Input    8 Bit        Muxes := 1     
-	   7 Input    7 Bit        Muxes := 1     
-	   2 Input    7 Bit        Muxes := 12    
-	   5 Input    5 Bit        Muxes := 1     
-	   2 Input    5 Bit        Muxes := 5     
-	   6 Input    4 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 4     
-	   5 Input    3 Bit        Muxes := 3     
-	   2 Input    2 Bit        Muxes := 1     
-	   3 Input    2 Bit        Muxes := 1     
-	   5 Input    1 Bit        Muxes := 4     
-	   3 Input    1 Bit        Muxes := 3     
-	   2 Input    1 Bit        Muxes := 18    
-	   6 Input    1 Bit        Muxes := 3     
-	   7 Input    1 Bit        Muxes := 9     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -222,25 +107,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 2273.906 ; gain = 125.633 ; free physical = 409 ; free virtual = 797
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 2178.656 ; gain = 23.910 ; free physical = 599 ; free virtual = 1131
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 2273.906 ; gain = 125.633 ; free physical = 251 ; free virtual = 676
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 2203.656 ; gain = 48.910 ; free physical = 436 ; free virtual = 979
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 2375.172 ; gain = 226.898 ; free physical = 158 ; free virtual = 593
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 2203.656 ; gain = 48.910 ; free physical = 436 ; free virtual = 978
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 2375.172 ; gain = 226.898 ; free physical = 152 ; free virtual = 588
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 2222.688 ; gain = 67.941 ; free physical = 435 ; free virtual = 978
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -258,88 +143,77 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 2375.172 ; gain = 226.898 ; free physical = 153 ; free virtual = 588
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.625 ; gain = 73.879 ; free physical = 427 ; free virtual = 980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2375.172 ; gain = 226.898 ; free physical = 153 ; free virtual = 588
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.625 ; gain = 73.879 ; free physical = 427 ; free virtual = 980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2375.172 ; gain = 226.898 ; free physical = 153 ; free virtual = 588
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.625 ; gain = 73.879 ; free physical = 427 ; free virtual = 980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2375.172 ; gain = 226.898 ; free physical = 153 ; free virtual = 588
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.625 ; gain = 73.879 ; free physical = 427 ; free virtual = 980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:47 . Memory (MB): peak = 2375.172 ; gain = 226.898 ; free physical = 152 ; free virtual = 588
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.625 ; gain = 73.879 ; free physical = 427 ; free virtual = 980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:47 . Memory (MB): peak = 2375.172 ; gain = 226.898 ; free physical = 152 ; free virtual = 588
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.625 ; gain = 73.879 ; free physical = 427 ; free virtual = 980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
++------+-------------------------+----------+
+|      |BlackBox name            |Instances |
++------+-------------------------+----------+
+|1     |uart_Debounce_Switch_0_0 |         1|
+|2     |uart_uart_top_sub_0_0    |         1|
++------+-------------------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |BUFG   |     1|
-|2     |CARRY4 |   134|
-|3     |LUT1   |   511|
-|4     |LUT2   |   133|
-|5     |LUT3   |    62|
-|6     |LUT4   |   843|
-|7     |LUT5   |   856|
-|8     |LUT6   |  1347|
-|9     |MUXF7  |     4|
-|10    |FDRE   |  3193|
-|11    |FDSE   |     2|
-|12    |LD     |    24|
-|13    |IBUF   |     3|
-|14    |OBUF   |     1|
-+------+-------+------+
++------+-----------------------+------+
+|      |Cell                   |Count |
++------+-----------------------+------+
+|1     |uart_Debounce_Switch_0 |     1|
+|2     |uart_uart_top_sub_0    |     1|
+|3     |IBUF                   |     3|
+|4     |OBUF                   |     1|
++------+-----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:47 . Memory (MB): peak = 2375.172 ; gain = 226.898 ; free physical = 152 ; free virtual = 588
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.625 ; gain = 73.879 ; free physical = 427 ; free virtual = 980
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 2375.172 ; gain = 101.266 ; free physical = 211 ; free virtual = 647
-Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:47 . Memory (MB): peak = 2375.180 ; gain = 226.898 ; free physical = 210 ; free virtual = 647
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 2228.625 ; gain = 49.969 ; free physical = 484 ; free virtual = 1037
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.633 ; gain = 73.879 ; free physical = 484 ; free virtual = 1037
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2375.180 ; gain = 0.000 ; free physical = 218 ; free virtual = 721
-INFO: [Netlist 29-17] Analyzing 162 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2228.633 ; gain = 0.000 ; free physical = 528 ; free virtual = 1109
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2375.180 ; gain = 0.000 ; free physical = 163 ; free virtual = 669
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2234.562 ; gain = 0.000 ; free physical = 500 ; free virtual = 1082
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 24 instances were transformed.
-  LD => LDCE: 24 instances
+No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+24 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 2375.180 ; gain = 227.008 ; free physical = 351 ; free virtual = 858
-INFO: [Common 17-1381] The checkpoint '/media/jeffee/T7/vivado/Final/Final.runs/synth_1/uart_top_sub.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file uart_top_sub_utilization_synth.rpt -pb uart_top_sub_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May  7 08:07:33 2023...
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 2234.562 ; gain = 79.914 ; free physical = 632 ; free virtual = 1215
+INFO: [Common 17-1381] The checkpoint '/media/jeffee/T7/vivado/Final/Final.runs/synth_1/uart_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file uart_wrapper_utilization_synth.rpt -pb uart_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun May  7 12:41:02 2023...

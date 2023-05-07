@@ -125,7 +125,9 @@ module mp_adder_sub #(
 
     // Describe the output signal oRes: it is the concatenation of output registers
     assign oRes = (iSub == 0)? {regCout, regResult} : ((regCout == 0)? {1'b0, ~regResult + 1} : {1'b0, regResult});
-    
+//    assign oRes = (iSub == 0)? {regCout, regResult} :{1'b0, regResult}; // when result is negative will occasionally be wrong at python terminal
+//    assign oRes = (iSub == 0)? {regCout, regResult} : {~regCout, regResult};    // always 2's compliment
+//    assign oRes = {regCout, regResult};    doesn't work. when result is positive taht in 2's compliment the carry is 1 and will be presented as 0001 in python
 
     // FINITE STATE MACHINE
     
