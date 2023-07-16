@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Sun May  7 12:39:20 2023
-# Process ID: 125686
+# Start of session at: Thu May 11 19:54:15 2023
+# Process ID: 66029
 # Current directory: /media/jeffee/T7/vivado/Final/Final.runs/uart_uart_top_sub_0_0_synth_1
 # Command line: vivado -log uart_uart_top_sub_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_uart_top_sub_0_0.tcl
 # Log file: /media/jeffee/T7/vivado/Final/Final.runs/uart_uart_top_sub_0_0_synth_1/uart_uart_top_sub_0_0.vds

@@ -85,7 +85,7 @@ module uart_top_sub #(
      .iStart(rStart),
      .iOpA(rA),
      .iOpB(rB),
-     .iSub(rSub),
+     .iSub(rSub), // as long as iSub != 0, what it does is subtraction
      .oRes(wRes),
      .oDone(wDone)
      );
@@ -208,7 +208,24 @@ module uart_top_sub #(
                 if (rCnt == 0) begin                                  // since send from MSB, we send the carry first
                     rFSM <= s_WAIT_TX;                                // next state is to go wait_for_Nbytes_tx_to_be_done buffer state
                     rTxStart <= 1; 
-                    rTxByte <= {7'b0000000 ,rRes[NBYTES*8]}; // we send the the extra byte with carry
+//                    if ((rSub == 1) && (rRes[NBYTES*8] == 1)) // !!!need to verify 5.8 
+//                        rTxByte <= {7'b1111111 ,rRes[NBYTES*8]}; // we send the the extra byte with carry
+//                    else
+//                        rTxByte <= {7'b0000000 ,rRes[NBYTES*8]}; // we send the the extra byte with carry
+                    if ((rSub == 1) && (rRes[NBYTES*8] == 1)) begin // !!!need to verify 5.8 
+                        rTxByte <= {7'b1111111 ,rRes[NBYTES*8]}; // we send the the extra byte with carry
+                    end else begin
+                        if ((rSub == 2) && (rRes[NBYTES*8] == 1)) begin// comparator && result is negative (A < B) 
+                            rTxByte <= 8'b00000000; // output Y = 0
+                        end else begin
+                            if ((rSub == 2) && (rRes[NBYTES*8] == 0)) begin// comparator && result is NOT negative (A >= B)
+                                 rTxByte <= 8'b00000001; // output Y = 0
+                            end else begin
+                                rTxByte <= {7'b0000000 ,rRes[NBYTES*8]}; // we send the the extra byte with carry
+                            end
+                        end   
+                    end
+
                     rRes <= {rRes[NBYTES*8-1:0] , 1'b0};              // we shift one bit from right to left
                     rCnt <= rCnt + 1;                       
                 end                                                  // no longer the carry processing state
@@ -232,12 +249,21 @@ module uart_top_sub #(
         s_WAIT_TX :
           begin
             if (wTxDone) begin                                        // if tx_action_finished signal is recieved from uart_tx
-              rFSM <= s_TX;                                           // if bytes preparation and sending is done, go to the next nBytes preparation state
-            end else begin
+              if(rSub == 2)begin
+                rFSM <= s_IDLE;
+                rTxStart <= 0;                                        // reset all buffers
+                rTxByte <= 0;
+                rCnt <= 0;
+              end else begin
+                rFSM <= s_TX;                                           // if bytes preparation and sending is done, go to the next nBytes preparation state
+              end
+            end
+             else begin
               rFSM <= s_WAIT_TX;                                      // if the tx is still sending, wait still
               rTxStart <= 0;                                          // do not restart
             end
           end 
+
           
         s_DONE :
           begin

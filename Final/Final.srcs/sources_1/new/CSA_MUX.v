@@ -59,6 +59,8 @@ module CSA_MUX #(
 //            CLA_Mb_FOR#(M) cla_inst_1( a[M*i +: M], b[M*i +: M], 1, mux_c[(3*i)-1], mux_sum_1[i-1]);
             CLA_16b_EXP#(M) cla_inst_0( a[M*i +: M], b[M*i +: M], 0, mux_sum_0[i-1], mux_c[(3*i)-2]);
             CLA_16b_EXP#(M) cla_inst_1( a[M*i +: M], b[M*i +: M], 1, mux_sum_1[i-1], mux_c[(3*i)-1]);
+//            brent_kung_16b bk_0(a[M*i +: M], b[M*i +: M], 0, mux_c[(3*i)-2], mux_sum_0[i-1]);
+//            brent_kung_16b bk_1(a[M*i +: M], b[M*i +: M], 1, mux_c[(3*i)-1], mux_sum_1[i-1]);
 //            carry_lookahead_adder #(M) cla_inst_0(a[M*i +: M], b[M*i +: M], 0, mux_sum_0[i-1], mux_c[(3*i)-2]);
 //            carry_lookahead_adder #(M) cla_inst_1(a[M*i +: M], b[M*i +: M], 0, mux_sum_0[i-1], mux_c[(3*i)-1]);
             // instantiate sum mux and carry mux

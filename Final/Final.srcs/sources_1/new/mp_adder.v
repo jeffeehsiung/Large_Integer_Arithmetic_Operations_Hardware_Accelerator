@@ -84,7 +84,6 @@ module mp_adder #(
 //        .csa_cout( carry_out)
 //      );
 
-
     CSA_MUX #(ADDER_WIDTH) CSA_MUX_inst (
         operandA,
         operandB,
@@ -92,6 +91,14 @@ module mp_adder #(
         carry_out,
         result
     );
+
+//    ripple_carry_adder_Nb #(.n(ADDER_WIDTH)) rpca_inst(
+//        .a( operandA ), 
+//        .b( operandB ),
+//        .cin( carry_in ),
+//        .sum( result ),
+//        .cout( carry_out)
+//    );
 
 
     // Describe an OPERAND_WIDTH-bit register for storing the result

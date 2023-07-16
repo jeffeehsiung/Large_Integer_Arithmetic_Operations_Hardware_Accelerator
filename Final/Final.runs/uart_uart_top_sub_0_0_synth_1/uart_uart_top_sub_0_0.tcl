@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "uart_uart_top_sub_0_0_synth_1" START { ROLLUP_AUTO }
+set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1

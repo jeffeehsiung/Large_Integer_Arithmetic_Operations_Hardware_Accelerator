@@ -56,7 +56,7 @@ module mp_adder_sub_TB();
       // subtract logic
       if(iSub == 1) begin
         rExpectedResult = rA - rB;
-        rExpectedResult = ~rExpectedResult + 1; 
+//        rExpectedResult = ~rExpectedResult + 1; 
       end
       else begin
         rExpectedResult = rA + rB;

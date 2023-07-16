@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="uart" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1683488149"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1683488149"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1683488149"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1683488149"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1683860044"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1683860044"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1683860044"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1683860044"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/uart_Debounce_Switch_0_0/uart_Debounce_Switch_0_0.xci" Type="IP">
         <Instance HierarchyPath="Debounce_Switch_0"/>

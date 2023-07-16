@@ -54,96 +54,131 @@
 #endif
 typedef void (*funcp)(char *, char *);
 extern int main(int, char**);
-IKI_DLLESPEC extern void execute_267(char*, char *);
-IKI_DLLESPEC extern void execute_268(char*, char *);
-IKI_DLLESPEC extern void execute_1303(char*, char *);
-IKI_DLLESPEC extern void execute_1304(char*, char *);
-IKI_DLLESPEC extern void execute_1305(char*, char *);
-IKI_DLLESPEC extern void execute_1306(char*, char *);
-IKI_DLLESPEC extern void execute_1307(char*, char *);
+IKI_DLLESPEC extern void execute_435(char*, char *);
+IKI_DLLESPEC extern void execute_436(char*, char *);
+IKI_DLLESPEC extern void execute_1527(char*, char *);
+IKI_DLLESPEC extern void execute_1528(char*, char *);
+IKI_DLLESPEC extern void execute_1529(char*, char *);
+IKI_DLLESPEC extern void execute_1530(char*, char *);
+IKI_DLLESPEC extern void execute_1531(char*, char *);
 IKI_DLLESPEC extern void execute_3(char*, char *);
 IKI_DLLESPEC extern void execute_4(char*, char *);
-IKI_DLLESPEC extern void execute_261(char*, char *);
-IKI_DLLESPEC extern void execute_262(char*, char *);
-IKI_DLLESPEC extern void execute_263(char*, char *);
-IKI_DLLESPEC extern void execute_264(char*, char *);
-IKI_DLLESPEC extern void execute_265(char*, char *);
-IKI_DLLESPEC extern void execute_266(char*, char *);
-IKI_DLLESPEC extern void execute_274(char*, char *);
+IKI_DLLESPEC extern void execute_429(char*, char *);
+IKI_DLLESPEC extern void execute_430(char*, char *);
+IKI_DLLESPEC extern void execute_431(char*, char *);
+IKI_DLLESPEC extern void execute_432(char*, char *);
+IKI_DLLESPEC extern void execute_433(char*, char *);
+IKI_DLLESPEC extern void execute_434(char*, char *);
+IKI_DLLESPEC extern void execute_442(char*, char *);
 IKI_DLLESPEC extern void vlog_simple_process_execute_1_fast_no_reg_no_agg(char*, char*, char*);
-IKI_DLLESPEC extern void execute_276(char*, char *);
-IKI_DLLESPEC extern void execute_1297(char*, char *);
-IKI_DLLESPEC extern void execute_1298(char*, char *);
-IKI_DLLESPEC extern void execute_1299(char*, char *);
+IKI_DLLESPEC extern void execute_444(char*, char *);
+IKI_DLLESPEC extern void execute_1521(char*, char *);
+IKI_DLLESPEC extern void execute_1522(char*, char *);
+IKI_DLLESPEC extern void execute_1523(char*, char *);
 IKI_DLLESPEC extern void vlog_simple_process_execute_0_fast_no_reg_no_agg(char*, char*, char*);
-IKI_DLLESPEC extern void execute_1301(char*, char *);
-IKI_DLLESPEC extern void execute_476(char*, char *);
-IKI_DLLESPEC extern void execute_477(char*, char *);
-IKI_DLLESPEC extern void execute_610(char*, char *);
-IKI_DLLESPEC extern void execute_611(char*, char *);
-IKI_DLLESPEC extern void execute_744(char*, char *);
-IKI_DLLESPEC extern void execute_745(char*, char *);
-IKI_DLLESPEC extern void execute_878(char*, char *);
-IKI_DLLESPEC extern void execute_879(char*, char *);
-IKI_DLLESPEC extern void execute_1012(char*, char *);
-IKI_DLLESPEC extern void execute_1013(char*, char *);
-IKI_DLLESPEC extern void execute_1146(char*, char *);
-IKI_DLLESPEC extern void execute_1147(char*, char *);
-IKI_DLLESPEC extern void execute_1280(char*, char *);
-IKI_DLLESPEC extern void execute_1281(char*, char *);
-IKI_DLLESPEC extern void execute_1282(char*, char *);
-IKI_DLLESPEC extern void execute_1283(char*, char *);
-IKI_DLLESPEC extern void execute_1284(char*, char *);
-IKI_DLLESPEC extern void execute_1285(char*, char *);
-IKI_DLLESPEC extern void execute_1286(char*, char *);
-IKI_DLLESPEC extern void execute_1287(char*, char *);
-IKI_DLLESPEC extern void execute_1288(char*, char *);
-IKI_DLLESPEC extern void execute_1289(char*, char *);
-IKI_DLLESPEC extern void execute_1290(char*, char *);
-IKI_DLLESPEC extern void execute_1291(char*, char *);
-IKI_DLLESPEC extern void execute_1292(char*, char *);
-IKI_DLLESPEC extern void execute_1293(char*, char *);
-IKI_DLLESPEC extern void execute_1294(char*, char *);
-IKI_DLLESPEC extern void execute_1295(char*, char *);
-IKI_DLLESPEC extern void execute_1296(char*, char *);
-IKI_DLLESPEC extern void execute_278(char*, char *);
-IKI_DLLESPEC extern void execute_282(char*, char *);
-IKI_DLLESPEC extern void execute_286(char*, char *);
-IKI_DLLESPEC extern void execute_290(char*, char *);
-IKI_DLLESPEC extern void execute_294(char*, char *);
-IKI_DLLESPEC extern void execute_298(char*, char *);
-IKI_DLLESPEC extern void execute_302(char*, char *);
-IKI_DLLESPEC extern void execute_306(char*, char *);
-IKI_DLLESPEC extern void execute_310(char*, char *);
-IKI_DLLESPEC extern void execute_314(char*, char *);
-IKI_DLLESPEC extern void execute_318(char*, char *);
-IKI_DLLESPEC extern void execute_322(char*, char *);
-IKI_DLLESPEC extern void execute_326(char*, char *);
-IKI_DLLESPEC extern void execute_330(char*, char *);
-IKI_DLLESPEC extern void execute_334(char*, char *);
-IKI_DLLESPEC extern void execute_338(char*, char *);
-IKI_DLLESPEC extern void execute_342(char*, char *);
-IKI_DLLESPEC extern void execute_343(char*, char *);
-IKI_DLLESPEC extern void execute_279(char*, char *);
-IKI_DLLESPEC extern void execute_280(char*, char *);
-IKI_DLLESPEC extern void execute_281(char*, char *);
-IKI_DLLESPEC extern void execute_270(char*, char *);
-IKI_DLLESPEC extern void execute_271(char*, char *);
-IKI_DLLESPEC extern void execute_272(char*, char *);
-IKI_DLLESPEC extern void execute_273(char*, char *);
-IKI_DLLESPEC extern void execute_1308(char*, char *);
-IKI_DLLESPEC extern void execute_1309(char*, char *);
-IKI_DLLESPEC extern void execute_1310(char*, char *);
-IKI_DLLESPEC extern void execute_1311(char*, char *);
-IKI_DLLESPEC extern void execute_1312(char*, char *);
-IKI_DLLESPEC extern void execute_1313(char*, char *);
+IKI_DLLESPEC extern void execute_1525(char*, char *);
+IKI_DLLESPEC extern void execute_652(char*, char *);
+IKI_DLLESPEC extern void execute_653(char*, char *);
+IKI_DLLESPEC extern void execute_794(char*, char *);
+IKI_DLLESPEC extern void execute_795(char*, char *);
+IKI_DLLESPEC extern void execute_936(char*, char *);
+IKI_DLLESPEC extern void execute_937(char*, char *);
+IKI_DLLESPEC extern void execute_1078(char*, char *);
+IKI_DLLESPEC extern void execute_1079(char*, char *);
+IKI_DLLESPEC extern void execute_1220(char*, char *);
+IKI_DLLESPEC extern void execute_1221(char*, char *);
+IKI_DLLESPEC extern void execute_1362(char*, char *);
+IKI_DLLESPEC extern void execute_1363(char*, char *);
+IKI_DLLESPEC extern void execute_1504(char*, char *);
+IKI_DLLESPEC extern void execute_1505(char*, char *);
+IKI_DLLESPEC extern void execute_1506(char*, char *);
+IKI_DLLESPEC extern void execute_1507(char*, char *);
+IKI_DLLESPEC extern void execute_1508(char*, char *);
+IKI_DLLESPEC extern void execute_1509(char*, char *);
+IKI_DLLESPEC extern void execute_1510(char*, char *);
+IKI_DLLESPEC extern void execute_1511(char*, char *);
+IKI_DLLESPEC extern void execute_1512(char*, char *);
+IKI_DLLESPEC extern void execute_1513(char*, char *);
+IKI_DLLESPEC extern void execute_1514(char*, char *);
+IKI_DLLESPEC extern void execute_1515(char*, char *);
+IKI_DLLESPEC extern void execute_1516(char*, char *);
+IKI_DLLESPEC extern void execute_1517(char*, char *);
+IKI_DLLESPEC extern void execute_1518(char*, char *);
+IKI_DLLESPEC extern void execute_1519(char*, char *);
+IKI_DLLESPEC extern void execute_1520(char*, char *);
+IKI_DLLESPEC extern void execute_446(char*, char *);
+IKI_DLLESPEC extern void execute_450(char*, char *);
+IKI_DLLESPEC extern void execute_454(char*, char *);
+IKI_DLLESPEC extern void execute_458(char*, char *);
+IKI_DLLESPEC extern void execute_462(char*, char *);
+IKI_DLLESPEC extern void execute_466(char*, char *);
+IKI_DLLESPEC extern void execute_470(char*, char *);
+IKI_DLLESPEC extern void execute_474(char*, char *);
+IKI_DLLESPEC extern void execute_478(char*, char *);
+IKI_DLLESPEC extern void execute_482(char*, char *);
+IKI_DLLESPEC extern void execute_486(char*, char *);
+IKI_DLLESPEC extern void execute_490(char*, char *);
+IKI_DLLESPEC extern void execute_494(char*, char *);
+IKI_DLLESPEC extern void execute_498(char*, char *);
+IKI_DLLESPEC extern void execute_502(char*, char *);
+IKI_DLLESPEC extern void execute_506(char*, char *);
+IKI_DLLESPEC extern void execute_510(char*, char *);
+IKI_DLLESPEC extern void execute_511(char*, char *);
+IKI_DLLESPEC extern void execute_447(char*, char *);
+IKI_DLLESPEC extern void execute_448(char*, char *);
+IKI_DLLESPEC extern void execute_449(char*, char *);
+IKI_DLLESPEC extern void execute_565(char*, char *);
+IKI_DLLESPEC extern void execute_566(char*, char *);
+IKI_DLLESPEC extern void execute_567(char*, char *);
+IKI_DLLESPEC extern void execute_568(char*, char *);
+IKI_DLLESPEC extern void execute_569(char*, char *);
+IKI_DLLESPEC extern void execute_570(char*, char *);
+IKI_DLLESPEC extern void execute_571(char*, char *);
+IKI_DLLESPEC extern void execute_572(char*, char *);
+IKI_DLLESPEC extern void execute_573(char*, char *);
+IKI_DLLESPEC extern void execute_574(char*, char *);
+IKI_DLLESPEC extern void execute_575(char*, char *);
+IKI_DLLESPEC extern void execute_576(char*, char *);
+IKI_DLLESPEC extern void execute_577(char*, char *);
+IKI_DLLESPEC extern void execute_578(char*, char *);
+IKI_DLLESPEC extern void execute_579(char*, char *);
+IKI_DLLESPEC extern void execute_580(char*, char *);
+IKI_DLLESPEC extern void execute_512(char*, char *);
+IKI_DLLESPEC extern void execute_513(char*, char *);
+IKI_DLLESPEC extern void execute_514(char*, char *);
+IKI_DLLESPEC extern void execute_515(char*, char *);
+IKI_DLLESPEC extern void execute_516(char*, char *);
+IKI_DLLESPEC extern void execute_517(char*, char *);
+IKI_DLLESPEC extern void execute_518(char*, char *);
+IKI_DLLESPEC extern void execute_519(char*, char *);
+IKI_DLLESPEC extern void execute_520(char*, char *);
+IKI_DLLESPEC extern void execute_521(char*, char *);
+IKI_DLLESPEC extern void execute_522(char*, char *);
+IKI_DLLESPEC extern void execute_523(char*, char *);
+IKI_DLLESPEC extern void execute_524(char*, char *);
+IKI_DLLESPEC extern void execute_525(char*, char *);
+IKI_DLLESPEC extern void execute_526(char*, char *);
+IKI_DLLESPEC extern void execute_527(char*, char *);
+IKI_DLLESPEC extern void execute_528(char*, char *);
+IKI_DLLESPEC extern void execute_529(char*, char *);
+IKI_DLLESPEC extern void execute_530(char*, char *);
+IKI_DLLESPEC extern void execute_438(char*, char *);
+IKI_DLLESPEC extern void execute_439(char*, char *);
+IKI_DLLESPEC extern void execute_440(char*, char *);
+IKI_DLLESPEC extern void execute_441(char*, char *);
+IKI_DLLESPEC extern void execute_1532(char*, char *);
+IKI_DLLESPEC extern void execute_1533(char*, char *);
+IKI_DLLESPEC extern void execute_1534(char*, char *);
+IKI_DLLESPEC extern void execute_1535(char*, char *);
+IKI_DLLESPEC extern void execute_1536(char*, char *);
+IKI_DLLESPEC extern void execute_1537(char*, char *);
 IKI_DLLESPEC extern void vlog_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
-funcp funcTab[84] = {(funcp)execute_267, (funcp)execute_268, (funcp)execute_1303, (funcp)execute_1304, (funcp)execute_1305, (funcp)execute_1306, (funcp)execute_1307, (funcp)execute_3, (funcp)execute_4, (funcp)execute_261, (funcp)execute_262, (funcp)execute_263, (funcp)execute_264, (funcp)execute_265, (funcp)execute_266, (funcp)execute_274, (funcp)vlog_simple_process_execute_1_fast_no_reg_no_agg, (funcp)execute_276, (funcp)execute_1297, (funcp)execute_1298, (funcp)execute_1299, (funcp)vlog_simple_process_execute_0_fast_no_reg_no_agg, (funcp)execute_1301, (funcp)execute_476, (funcp)execute_477, (funcp)execute_610, (funcp)execute_611, (funcp)execute_744, (funcp)execute_745, (funcp)execute_878, (funcp)execute_879, (funcp)execute_1012, (funcp)execute_1013, (funcp)execute_1146, (funcp)execute_1147, (funcp)execute_1280, (funcp)execute_1281, (funcp)execute_1282, (funcp)execute_1283, (funcp)execute_1284, (funcp)execute_1285, (funcp)execute_1286, (funcp)execute_1287, (funcp)execute_1288, (funcp)execute_1289, (funcp)execute_1290, (funcp)execute_1291, (funcp)execute_1292, (funcp)execute_1293, (funcp)execute_1294, (funcp)execute_1295, (funcp)execute_1296, (funcp)execute_278, (funcp)execute_282, (funcp)execute_286, (funcp)execute_290, (funcp)execute_294, (funcp)execute_298, (funcp)execute_302, (funcp)execute_306, (funcp)execute_310, (funcp)execute_314, (funcp)execute_318, (funcp)execute_322, (funcp)execute_326, (funcp)execute_330, (funcp)execute_334, (funcp)execute_338, (funcp)execute_342, (funcp)execute_343, (funcp)execute_279, (funcp)execute_280, (funcp)execute_281, (funcp)execute_270, (funcp)execute_271, (funcp)execute_272, (funcp)execute_273, (funcp)execute_1308, (funcp)execute_1309, (funcp)execute_1310, (funcp)execute_1311, (funcp)execute_1312, (funcp)execute_1313, (funcp)vlog_transfunc_eventcallback};
-const int NumRelocateId= 84;
+funcp funcTab[119] = {(funcp)execute_435, (funcp)execute_436, (funcp)execute_1527, (funcp)execute_1528, (funcp)execute_1529, (funcp)execute_1530, (funcp)execute_1531, (funcp)execute_3, (funcp)execute_4, (funcp)execute_429, (funcp)execute_430, (funcp)execute_431, (funcp)execute_432, (funcp)execute_433, (funcp)execute_434, (funcp)execute_442, (funcp)vlog_simple_process_execute_1_fast_no_reg_no_agg, (funcp)execute_444, (funcp)execute_1521, (funcp)execute_1522, (funcp)execute_1523, (funcp)vlog_simple_process_execute_0_fast_no_reg_no_agg, (funcp)execute_1525, (funcp)execute_652, (funcp)execute_653, (funcp)execute_794, (funcp)execute_795, (funcp)execute_936, (funcp)execute_937, (funcp)execute_1078, (funcp)execute_1079, (funcp)execute_1220, (funcp)execute_1221, (funcp)execute_1362, (funcp)execute_1363, (funcp)execute_1504, (funcp)execute_1505, (funcp)execute_1506, (funcp)execute_1507, (funcp)execute_1508, (funcp)execute_1509, (funcp)execute_1510, (funcp)execute_1511, (funcp)execute_1512, (funcp)execute_1513, (funcp)execute_1514, (funcp)execute_1515, (funcp)execute_1516, (funcp)execute_1517, (funcp)execute_1518, (funcp)execute_1519, (funcp)execute_1520, (funcp)execute_446, (funcp)execute_450, (funcp)execute_454, (funcp)execute_458, (funcp)execute_462, (funcp)execute_466, (funcp)execute_470, (funcp)execute_474, (funcp)execute_478, (funcp)execute_482, (funcp)execute_486, (funcp)execute_490, (funcp)execute_494, (funcp)execute_498, (funcp)execute_502, (funcp)execute_506, (funcp)execute_510, (funcp)execute_511, (funcp)execute_447, (funcp)execute_448, (funcp)execute_449, (funcp)execute_565, (funcp)execute_566, (funcp)execute_567, (funcp)execute_568, (funcp)execute_569, (funcp)execute_570, (funcp)execute_571, (funcp)execute_572, (funcp)execute_573, (funcp)execute_574, (funcp)execute_575, (funcp)execute_576, (funcp)execute_577, (funcp)execute_578, (funcp)execute_579, (funcp)execute_580, (funcp)execute_512, (funcp)execute_513, (funcp)execute_514, (funcp)execute_515, (funcp)execute_516, (funcp)execute_517, (funcp)execute_518, (funcp)execute_519, (funcp)execute_520, (funcp)execute_521, (funcp)execute_522, (funcp)execute_523, (funcp)execute_524, (funcp)execute_525, (funcp)execute_526, (funcp)execute_527, (funcp)execute_528, (funcp)execute_529, (funcp)execute_530, (funcp)execute_438, (funcp)execute_439, (funcp)execute_440, (funcp)execute_441, (funcp)execute_1532, (funcp)execute_1533, (funcp)execute_1534, (funcp)execute_1535, (funcp)execute_1536, (funcp)execute_1537, (funcp)vlog_transfunc_eventcallback};
+const int NumRelocateId= 119;
 
 void relocate(char *dp)
 {
-	iki_relocate(dp, "xsim.dir/mp_adder_TB_behav/xsim.reloc",  (void **)funcTab, 84);
+	iki_relocate(dp, "xsim.dir/mp_adder_TB_behav/xsim.reloc",  (void **)funcTab, 119);
 
 	/*Populate the transaction function pointer field in the whole net structure */
 }
@@ -153,10 +188,19 @@ void sensitize(char *dp)
 	iki_sensitize(dp, "xsim.dir/mp_adder_TB_behav/xsim.reloc");
 }
 
+	// Initialize Verilog nets in mixed simulation, for the cases when the value at time 0 should be propagated from the mixed language Vhdl net
+
+void wrapper_func_0(char *dp)
+
+{
+
+}
+
 void simulate(char *dp)
 {
 		iki_schedule_processes_at_time_zero(dp, "xsim.dir/mp_adder_TB_behav/xsim.reloc");
-	// Initialize Verilog nets in mixed simulation, for the cases when the value at time 0 should be propagated from the mixed language Vhdl net
+	wrapper_func_0(dp);
+
 	iki_execute_processes();
 
 	// Schedule resolution functions for the multiply driven Verilog nets that have strength

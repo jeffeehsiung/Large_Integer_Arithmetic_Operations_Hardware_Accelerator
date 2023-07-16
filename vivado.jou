@@ -2,50 +2,105 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Mon Mar 20 07:42:36 2023
-# Process ID: 2490
+# Start of session at: Thu May 11 17:17:28 2023
+# Process ID: 49114
 # Current directory: /media/jeffee/T7/vivado
 # Command line: vivado
 # Log file: /media/jeffee/T7/vivado/vivado.log
 # Journal file: /media/jeffee/T7/vivado/vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project /media/jeffee/T7/vivado/UART/UART.xpr
+open_project /media/jeffee/T7/vivado/Final/Final.xpr
+update_compile_order -fileset sources_1
+close [ open /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/brent_kung_16b.v w ]
+add_files /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/brent_kung_16b.v
+update_compile_order -fileset sources_1
+close [ open /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/PG.v w ]
+add_files /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/PG.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
-set_property top uart_top [current_fileset]
+set_property top mp_adder_TB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
 # Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode DisplayOnly [current_project]
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
 launch_simulation
-open_wave_config /media/jeffee/T7/vivado/UART/uart_top_TB_behav.wcfg
-source uart_top_TB.tcl
-run 1 ms
-open_bd_design {/media/jeffee/T7/vivado/UART/UART.srcs/sources_1/bd/uart/uart.bd}
-regenerate_bd_layout
-validate_bd_design -force
+launch_simulation
+source mp_adder_TB.tcl
+run 100 us
+run 100 us
+run 100 us
+relaunch_sim
+close_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top uart_top_TB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top mp_adder_sub [current_fileset]
+set_property top_lib xil_defaultlib [current_fileset]
+set_property top_file /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mp_adder_sub.v [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top mp_adder_sub_TB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+launch_simulation
+source mp_adder_sub_TB.tcl
+close_sim
+update_module_reference uart_uart_top_sub_0_0
 close_bd_design [get_bd_designs uart]
-relaunch_sim
-run 1 ms
-close_sim
-launch_simulation
-open_wave_config /media/jeffee/T7/vivado/UART/uart_top_TB_behav.wcfg
-source uart_top_TB.tcl
-run 1 ms
-export_ip_user_files -of_objects  [get_files /media/jeffee/T7/vivado/UART/uart_top_TB_behav.wcfg] -no_script -reset -force -quiet
-remove_files  -fileset sim_1 /media/jeffee/T7/vivado/UART/uart_top_TB_behav.wcfg
-close_sim
-launch_simulation
-source uart_top_TB.tcl
-run 1 ms
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-relaunch_sim
-relaunch_sim
-run 80 us
-set_property needs_refresh false [get_runs synth_1]
-set_property needs_refresh false [get_runs impl_1]
-set_property needs_refresh false [get_runs uart_Debounce_Switch_0_0_synth_1]
-set_property needs_refresh false [get_runs uart_uart_top_0_0_synth_1]
-close_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top mp_adder [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+close_design
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/kogge_stone_adder.v] -no_script -reset -force -quiet
+remove_files  /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/kogge_stone_adder.v
+file delete -force /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/kogge_stone_adder.v
+export_ip_user_files -of_objects  [get_files /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mux2to1.v] -no_script -reset -force -quiet
+remove_files  /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mux2to1.v
+file delete -force /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/mux2to1.v
+export_ip_user_files -of_objects  [get_files /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_rx_sub.v] -no_script -reset -force -quiet
+remove_files  /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_rx_sub.v
+file delete -force /media/jeffee/T7/vivado/Final/Final.srcs/sources_1/new/uart_rx_sub.v
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top uart_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+update_module_reference uart_uart_top_sub_0_0
+regenerate_bd_layout
+validate_bd_design
+save_bd_design
+close_bd_design [get_bd_designs uart]
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+close_design
